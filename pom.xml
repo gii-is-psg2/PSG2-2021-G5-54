@@ -3,16 +3,79 @@
          xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>org.springframework.samples</groupId>
-    <artifactId>spring-petclinic</artifactId>
-    <version>2.2.0.BUILD-SNAPSHOT</version>
+    <groupId>es.us.psg2</groupId>
+    <artifactId>spring-petclinic.psg2.2021-G5-54</artifactId>
+    <version>1.0.0</version>
+    <name>PSG2-2021-G5-54 Petclinic</name>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.2.4.RELEASE</version>
     </parent>
-    <name>petclinic</name>
+    
+  <developers>
+    <developer>
+      <id>ferhidagu</id>
+      <name>Fernando Miguel Hidalgo Aguilar</name>
+      <email>ferhidagu@alum.us.es</email>
+      <organization>PSG2-2021-G5-54</organization>
+      <roles>
+        <role>Developer</role>
+      </roles>
+    </developer>
+    
+    <developer>
+      <id>juagarcri</id>
+      <name>Juan Manuel García Criado</name>
+      <email>juagarcri@alum.us.es</email>
+      <organization>PSG2-2021-G5-54</organization>
+      <roles>
+        <role>Developer</role>
+      </roles>
+    </developer>
+    
+    <developer>
+      <id>luirodgar3</id>
+      <name>Luis Rodrigo García</name>
+      <email>luirodgar3@alum.us.es</email>
+      <organization>PSG2-2021-G5-54</organization>
+      <roles>
+      	<role>Scrum Master</role>
+        <role>Developer</role>
+      </roles>
+    </developer>
+    
+    <developer>
+      <id>julcarcos</id>
+      <name>Julian Carrascosa Cosano </name>
+      <email>julcarcos@alum.us.es</email>
+      <organization>PSG2-2021-G5-54</organization>
+      <roles>
+        <role>developer</role>
+      </roles>
+    </developer>
+    
+        <developer>
+      <id>ivaromcos</id>
+      <name>Ivan Romero Costa</name>
+      <email>ivaromcos@alum.us.es</email>
+      <organization>PSG2-2021-G5-54</organization>
+      <roles>
+        <role>developer</role>
+      </roles>
+    </developer>
+    
+        <developer>
+      <id>alesancab</id>
+      <name>Alejandro Sanabria Cabeza</name>
+      <email>alesancab@alum.us.es</email>
+      <organization>PSG2-2021-G5-54</organization>
+      <roles>
+        <role>developer</role>
+      </roles>
+    </developer>
+  </developers>
 
     <properties>
 
