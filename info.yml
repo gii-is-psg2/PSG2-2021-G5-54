@@ -9,7 +9,7 @@ project:
     member1:
       name: 'Fernando Miguel'
       surname: 'Hidalgo' 
-      githubUsername: 'Fernando-hidalgo'
+      githubUsername: 'fernando-hidalgo'
     member2:
       name: 'Juan Manuel'
       surname: 'García'
