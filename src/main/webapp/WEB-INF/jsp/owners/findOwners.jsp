@@ -10,7 +10,7 @@
 
 <petclinic:layout pageName="owners">
 
-  <h2 style="background-color: #f1f1f1;">Find Owners</h2>
+  <h2> Find Owners</h2>
 
     
     <form:form modelAttribute="owner" action="/owners" method="get" class="form-horizontal"
