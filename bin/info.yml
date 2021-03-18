@@ -1,0 +1,32 @@
+project:
+  name: 'PSG2-2021-G5-54 Petclinic'
+  owner: 'L5'
+  teamId: '54'
+  identities:
+    github:
+      url: 'https://github.com/gii-is-psg2/PSG2-2021-G5-54'
+  members:
+    member1:
+      name: 'Fernando Miguel'
+      surname: 'Hidalgo' 
+      githubUsername: 'fernando-hidalgo'
+    member2:
+      name: 'Juan Manuel'
+      surname: 'García'
+      githubUsername: 'Juanmagc99'
+    member3:
+      name: 'Alejandro'
+      surname: 'Sanabria'
+      githubUsername: 'Alesancab1'
+    member4:
+      name: 'Ivan'
+      surname: 'Romero'
+      githubUsername: 'ivaromcos-us'
+    member5:
+      name: 'Luis'
+      surname: 'Rodriguez'
+      githubUsername: 'LuisUsrDev'
+    member6:
+      name: 'Julian'
+      surname: 'Carrascosa'
+      githubUsername: 'Sakeed'
