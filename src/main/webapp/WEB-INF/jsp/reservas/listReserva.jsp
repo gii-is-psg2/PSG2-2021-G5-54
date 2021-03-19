@@ -17,7 +17,7 @@
         </tr>
         </thead>
         <tbody>
-        <c:forEach items="${reservas}" var="reserva">
+        <c:forEach items="${reserva}" var="reserva">
             <tr>     
                 <td>                    
                     <c:out value="${reserva.fechaInicio}"/>
