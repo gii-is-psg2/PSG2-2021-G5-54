@@ -62,3 +62,5 @@ INSERT INTO visits(id,pet_id,visit_date,description) VALUES (2, 8, '2013-01-02',
 INSERT INTO visits(id,pet_id,visit_date,description) VALUES (3, 8, '2013-01-03', 'neutered');
 INSERT INTO visits(id,pet_id,visit_date,description) VALUES (4, 7, '2013-01-04', 'spayed');
 
+INSERT INTO reservas(id,fecha_inicio,fecha_fin) VALUES (1, '2013-01-04', '2013-01-07');
+INSERT INTO reservas(id,fecha_inicio,fecha_fin) VALUES (2, '2013-01-04', '2013-01-22');
