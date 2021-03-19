@@ -20,10 +20,10 @@
         <c:forEach items="${reservas}" var="reserva">
             <tr>     
                 <td>                    
-                    <c:out value="${reserva.fecha_inicio}"/>
+                    <c:out value="${reserva.fechaInicio}"/>
                 </td>
                 <td>
-                    <c:out value="${reserva.fecha_fin}"/>
+                    <c:out value="${reserva.fechaFin}"/>
                 </td>
             </tr>
         </c:forEach>

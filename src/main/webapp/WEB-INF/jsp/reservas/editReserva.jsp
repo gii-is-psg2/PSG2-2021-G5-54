@@ -14,8 +14,8 @@
     </h2>
     <form:form modelAttribute="reserva" class="form-horizontal" id="add-reserva-form" action="/reservas/save">
         <div class="form-group has-feedback">
-            <petclinic:inputField label="Fecha inicio" name="fecha_inicio"/>
-            <petclinic:inputField label="Fecha fin" name="fecha_fin"/>
+            <petclinic:inputField label="Fecha inicio" name="fechaInicio"/>
+            <petclinic:inputField label="Fecha fin" name="fechaFin"/>
         </div>
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
