@@ -86,6 +86,11 @@
                                 </spring:url>
                                 <a href="${fn:escapeXml(visitUrl)}">Add Visit</a>
                             </td>
+                            <td class="text-left">
+                				<a href="/owners/${owner.id}/pets/${pet.id}/delete">
+                					<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                				</a>
+                			</td>  
                         </tr>
                     </table>
                 </td>
