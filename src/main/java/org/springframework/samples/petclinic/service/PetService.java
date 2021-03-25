@@ -81,7 +81,8 @@ public class PetService {
 	
 	@Transactional
 	public void delete(final Pet p)  throws DataAccessException {
-		this.petRepository.deleteById(p.getId());
+		//this.petRepository.deleteById(p.getId());
+		this.petRepository.deletePetRepository(p.getId(), p.getOwner().getId());
     }
 
 }
