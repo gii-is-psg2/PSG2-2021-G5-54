@@ -28,6 +28,11 @@
                     <div class="es"><c:if test="${vet.nrOfSpecialties == 0}">ninguna</c:if></div>
                     <div class="en"><c:if test="${vet.nrOfSpecialties == 0}">none</c:if></div>
                 </td>
+                <td class="text-left">
+                	<a href="/vets/${vet.id}/delete">
+                		<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                	</a>
+                </td> 
             </tr>
         </c:forEach>
         </tbody>

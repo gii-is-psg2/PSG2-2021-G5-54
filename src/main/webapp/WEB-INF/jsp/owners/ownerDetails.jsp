@@ -93,6 +93,11 @@
                                 <div class="es"><a href="${fn:escapeXml(visitUrl)}">Añadir Visita</a></div>
                                 <div class="en"><a href="${fn:escapeXml(visitUrl)}">Edit Visit</a></div>
                             </td>
+                            <td class="text-left">
+                				<a href="/owners/${owner.id}/pets/${pet.id}/delete">
+                					<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                				</a>
+                			</td>  
                         </tr>
                     </table>
                 </td>

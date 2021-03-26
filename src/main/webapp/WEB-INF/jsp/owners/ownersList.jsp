@@ -44,6 +44,11 @@
                         <c:out value="${pet.name} "/>
                     </c:forEach>
                 </td>
+                <td class="text-left">
+                	<a href="/owners/${owner.id}/delete">
+                		<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                	</a>
+                </td>  
                 
       
 <!--
