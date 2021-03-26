@@ -13,7 +13,8 @@
         <thead>
         <tr>
             <th>Fecha inicio</th>
-            <th>Fecha fin</th>             
+            <th>Fecha fin</th>
+            <th>Mascota</th>             
         </tr>
         </thead>
         <tbody>
@@ -24,6 +25,9 @@
                 </td>
                 <td>
                     <c:out value="${reserva.fechaFin}"/>
+                </td>
+                <td>
+                    <c:out value="${reserva.pet}"/>
                 </td>
             </tr>
         </c:forEach>
