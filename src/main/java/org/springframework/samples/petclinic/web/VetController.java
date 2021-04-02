@@ -17,6 +17,7 @@ package org.springframework.samples.petclinic.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.samples.petclinic.model.Specialty;
+import org.springframework.samples.petclinic.model.SpecialtyEnum;
 import org.springframework.samples.petclinic.model.Vet;
 import org.springframework.samples.petclinic.model.Vets;
 import org.springframework.samples.petclinic.repository.VetRepository;
@@ -31,6 +32,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -56,6 +59,11 @@ public class VetController {
 		this.vetService = clinicService;
 	}
 
+	  @ModelAttribute("specialty_enum")
+	    public List<SpecialtyEnum> getSpecialtyEnum(){
+	        return Arrays.stream(SpecialtyEnum.class.getEnumConstants()).collect(Collectors.toList());
+	    }
+	  
 	@GetMapping(value = { "/vets" })
 	public String showVetList(Map<String, Object> model) {
 		// Here we are returning an object of type 'Vets' rather than a collection of
@@ -82,22 +90,23 @@ public class VetController {
 	@GetMapping(value = "/vets/new")
 	public String initCreationForm(ModelMap model) {
 		Vet vet = new Vet();
-		List<Specialty> especialidades  = vetService.findSpecialties().stream().collect(Collectors.toList());
-		
-//		vet.addSpecialty(specialty);
-		model.addAttribute("specialty", especialidades);
+		List<SpecialtyEnum> especialidades  = new ArrayList<SpecialtyEnum>();
+		especialidades.add(SpecialtyEnum.DENTISTRY);
+		especialidades.add(SpecialtyEnum.SURGERY);
+		especialidades.add(SpecialtyEnum.RADIOLOGY);
+		model.addAttribute("specialties", especialidades);
 		model.addAttribute("vet", vet);
 		return VIEWS_VET_CREATE_OR_UPDATE_FORM;
 	}
 
 	@PostMapping(value = "/vets/new")
-	public String processCreationForm(@Valid Vet vet, BindingResult result, @Valid @ModelAttribute("specialty") Specialty specialty ) {
+	public String processCreationForm(@Valid Vet vet, BindingResult result) {//, @Valid @ModelAttribute("specialty") Specialty specialty ) {
 
 		if (result.hasErrors()) {
 			return VIEWS_VET_CREATE_OR_UPDATE_FORM;
 		} else {
 			
-			vet.addSpecialty(specialty);
+		
 			this.vetService.saveVet(vet);
 
 			return "redirect:/vets";
@@ -106,7 +115,12 @@ public class VetController {
 
 	@GetMapping(value = "/vets/{vetId}/edit")
 	public String initUpdateVetForm(@PathVariable("vetId") int vetId, Model model) {
-
+		
+		List<SpecialtyEnum> especialidades  = new ArrayList<SpecialtyEnum>();
+		especialidades.add(SpecialtyEnum.DENTISTRY);
+		especialidades.add(SpecialtyEnum.SURGERY);
+		especialidades.add(SpecialtyEnum.RADIOLOGY);
+		model.addAttribute("specialties", especialidades);
 		Vet vet = this.vetService.findVetById(vetId);
 		model.addAttribute(vet);
 		return VIEWS_VET_CREATE_OR_UPDATE_FORM;

@@ -24,6 +24,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.Repository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.samples.petclinic.model.Specialty;
+import org.springframework.samples.petclinic.model.SpecialtyEnum;
 import org.springframework.samples.petclinic.model.Vet;
 
 /**
@@ -51,8 +52,8 @@ public interface VetRepository extends Repository<Vet, Integer>{
 	void save(Vet vet) throws DataAccessException;
 
 	
-	@Query("SELECT specialty FROM Specialty specialty ORDER BY specialty.name")
-	Set<Specialty> findSpecialties() throws DataAccessException;
+//	@Query("SELECT specialty FROM Specialty specialty ORDER BY specialty.name")
+//	Set<SpecialtyEnum> findSpecialties() throws DataAccessException;
 
 
 }

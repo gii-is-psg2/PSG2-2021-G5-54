@@ -62,11 +62,11 @@ public class VetService {
 		return vetRepository.findById(id);
 	}
 
-	
-	@Transactional(readOnly = true)
-	public Collection<Specialty> findSpecialties() throws DataAccessException {
-		return vetRepository.findSpecialties();
-	}
+//	
+//	@Transactional(readOnly = true)
+//	public Collection<Specialty> findSpecialties() throws DataAccessException {
+//		return vetRepository.findSpecialties();
+//	}
 	@Transactional
 	public void saveVet(Vet vet) throws DataAccessException {
 		//creating owner

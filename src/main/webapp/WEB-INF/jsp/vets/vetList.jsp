@@ -3,6 +3,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="petclinic" tagdir="/WEB-INF/tags" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <petclinic:layout pageName="vets">
     <h2>Veterinarians</h2>
@@ -18,13 +19,17 @@
         <c:forEach items="${vets.vetList}" var="vet">
             <tr>
                 <td>
-                    <c:out value="${vet.firstName} ${vet.lastName}"/>
+                    <spring:url value="/vets/{vetId}/edit" var="vetUrl">
+                        <spring:param name="vetId" value="${vet.id}"/>
+                    </spring:url>
+                    <a href="${fn:escapeXml(vetUrl)}"><c:out value="${vet.firstName} ${vet.lastName}"/></a>
                 </td>
                 <td>
-                    <c:forEach var="specialty" items="${vet.specialties}">
+                 <c:out value="${vet.specialty} "/> 
+                   <%-- <c:forEach var="specialty" items="${vet.specialty}">
                         <c:out value="${specialty.name} "/>
                     </c:forEach>
-                    <c:if test="${vet.nrOfSpecialties == 0}">none</c:if>
+                    <c:if test="${vet.nrOfSpecialties == 0}">none</c:if>  --%>
                 </td>
             </tr>
         </c:forEach>
