@@ -1,7 +1,4 @@
 package org.springframework.samples.petclinic.model;
 
-public enum SpecialtyEnum {
-
-	   RADIOLOGY, SURGERY, DENTISTRY;
-	}
+public enum SpecialtyEnum {RADIOLOGY, SURGERY, DENTISTRY;}
 

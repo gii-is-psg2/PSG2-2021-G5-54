@@ -39,7 +39,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class VetService {
 
 	private final VetRepository vetRepository;
-	
+
 	@Autowired
 	private UserService userService;
 
@@ -47,23 +47,19 @@ public class VetService {
 	@Autowired
 	public VetService(final VetRepository vetRepository) {
 		this.vetRepository = vetRepository;
-	}		
+	}
 
-	@Transactional(readOnly = true)	
+	@Transactional(readOnly = true)
 	public Collection<Vet> findVets() throws DataAccessException {
 		return this.vetRepository.findAll();
 	}
-	
+
 	@Transactional
 	public Collection<Vet> findAll() {
 		return this.vetRepository.findAll();
     }
-	
-	@Transactional(readOnly = true)
-	public Optional<Vet> findVetById(final int id) throws DataAccessException {
-		return this.vetRepository.findById(id);
-	}
-	
+
+
 	@Transactional
 	public void delete(final Vet vet)  throws DataAccessException {
 		this.vetRepository.deleteById(vet.getId());
@@ -74,7 +70,7 @@ public class VetService {
 		return vetRepository.findById(id);
 	}
 
-//	
+//
 //	@Transactional(readOnly = true)
 //	public Collection<Specialty> findSpecialties() throws DataAccessException {
 //		return vetRepository.findSpecialties();
@@ -82,12 +78,12 @@ public class VetService {
 	@Transactional
 	public void saveVet(Vet vet) throws DataAccessException {
 		//creating owner
-		vetRepository.save(vet);		
+		vetRepository.save(vet);
 		//creating user
 //		userService.saveUser(vet.getUser());
 //		//creating authorities
 //		authoritiesService.saveAuthorities(vet.getUser().getUsername(), "owner");
-	}		
+	}
 
 }
 
