@@ -16,14 +16,16 @@
 package org.springframework.samples.petclinic.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.samples.petclinic.model.Owner;
 import org.springframework.samples.petclinic.model.Specialty;
 import org.springframework.samples.petclinic.model.SpecialtyEnum;
+
 import org.springframework.samples.petclinic.model.Vet;
 import org.springframework.samples.petclinic.model.Vets;
-import org.springframework.samples.petclinic.repository.VetRepository;
 import org.springframework.samples.petclinic.service.VetService;
 import org.springframework.stereotype.Controller;
+
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -43,6 +45,13 @@ import java.util.stream.Collectors;
 
 import javax.validation.Valid;
 
+
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+
 /**
  * @author Juergen Hoeller
  * @author Mark Fisher
@@ -52,8 +61,6 @@ import javax.validation.Valid;
 @Controller
 public class VetController {
 
-	private static final String VIEWS_VET_CREATE_OR_UPDATE_FORM = "vets/createOrUpdateVetForm";
-
 	private final VetService vetService;
 
 	@Autowired
@@ -61,15 +68,13 @@ public class VetController {
 		this.vetService = clinicService;
 	}
 
-	  @ModelAttribute("specialty_enum")
-	    public List<SpecialtyEnum> getSpecialtyEnum(){
-	        return Arrays.stream(SpecialtyEnum.class.getEnumConstants()).collect(Collectors.toList());
-	    }
-	  
 	@GetMapping(value = { "/vets" })
+
 	public String showVetList(Map<String, Object> model) {
 		// Here we are returning an object of type 'Vets' rather than a collection of
 		// Vet
+
+	
 		// objects
 		// so it is simpler for Object-Xml mapping
 		Vets vets = new Vets();
@@ -78,16 +83,16 @@ public class VetController {
 		return "vets/vetList";
 	}
 
-	@GetMapping(value = { "/vets.xml" })
+	@GetMapping(value = { "/vets.xml"})
 	public @ResponseBody Vets showResourcesVetList() {
-		// Here we are returning an object of type 'Vets' rather than a collection of
-		// Vet
+		// Here we are returning an object of type 'Vets' rather than a collection of Vet
 		// objects
 		// so it is simpler for JSon/Object mapping
 		Vets vets = new Vets();
 		vets.getVetList().addAll(this.vetService.findVets());
 		return vets;
 	}
+
 
 	@GetMapping(value = "/vets/new")
 	public String initCreationForm(ModelMap model) {
@@ -150,3 +155,6 @@ public class VetController {
 	    }
 
 }
+
+
+
