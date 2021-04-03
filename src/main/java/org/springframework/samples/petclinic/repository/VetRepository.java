@@ -38,12 +38,13 @@ import org.springframework.samples.petclinic.model.Vet;
  * @author Sam Brannen
  * @author Michael Isvy
  */
-public interface VetRepository extends Repository<Vet, Integer>{
+public interface VetRepository extends Repository<Vet, Integer>, CrudRepository<Vet, Integer>{
 
 	/**
 	 * Retrieve all <code>Vet</code>s from the data store.
 	 * @return a <code>Collection</code> of <code>Vet</code>s
 	 */
+	@Override
 	Collection<Vet> findAll() throws DataAccessException;
 	
 //	@Query("SELECT vet FROM Vet WHERE vet.id =:id")
