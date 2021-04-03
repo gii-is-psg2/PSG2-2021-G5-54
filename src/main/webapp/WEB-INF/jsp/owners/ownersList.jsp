@@ -5,17 +5,20 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="petclinic" tagdir="/WEB-INF/tags" %>
 
+
+
 <petclinic:layout pageName="owners">
-    <h2>Owners</h2>
+    <div class="es"><h2>Dueños</h2></div>
+    <div class="en"><h2>Owners</h2></div>
 
     <table id="ownersTable" class="table table-striped">
         <thead>
         <tr>
-            <th style="width: 150px;">Name</th>
-            <th style="width: 200px;">Address</th>
-            <th>City</th>
-            <th style="width: 120px">Telephone</th>
-            <th>Pets</th>
+            <th style="width: 150px;"><div class="es">Nombre</div><div class="en">Name</div></th>
+            <th style="width: 200px;"><div class="es">Dirección</div><div class="en">Address</div></th>
+            <th><div class="es">Ciudad</div><div class="en">City</div></th>
+            <th style="width: 120px"><div class="es">Teléfono</div><div class="en">Phone Address</div></th>
+            <th><div class="es">Mascotas</div><div class="en">Pets</div></th>
         </tr>
         </thead>
         <tbody>
@@ -41,6 +44,11 @@
                         <c:out value="${pet.name} "/>
                     </c:forEach>
                 </td>
+                <td class="text-left">
+                	<a href="/owners/${owner.id}/delete">
+                		<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                	</a>
+                </td>  
                 
       
 <!--
