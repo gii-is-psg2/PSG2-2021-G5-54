@@ -16,21 +16,24 @@
 package org.springframework.samples.petclinic.service;
 
 import java.util.Collection;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.dao.DataAccessException;
-
 import org.springframework.samples.petclinic.model.Owner;
 import org.springframework.samples.petclinic.model.Pet;
 import org.springframework.samples.petclinic.model.PetType;
 import org.springframework.samples.petclinic.model.Specialty;
-
-
 import org.springframework.samples.petclinic.model.Vet;
+import org.springframework.samples.petclinic.model.Visit;
+import org.springframework.samples.petclinic.repository.OwnerRepository;
+import org.springframework.samples.petclinic.repository.PetRepository;
 import org.springframework.samples.petclinic.repository.VetRepository;
+import org.springframework.samples.petclinic.repository.VisitRepository;
+import org.springframework.samples.petclinic.service.exceptions.DuplicatedPetNameException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.StringUtils;
 
 /**
  * Mostly used as a facade for all Petclinic controllers Also a placeholder
@@ -41,36 +44,18 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class VetService {
 
-	private final VetRepository vetRepository;
-	
-	@Autowired
-	private UserService userService;
+	private VetRepository vetRepository;
 
 
 	@Autowired
-	public VetService(final VetRepository vetRepository) {
+	public VetService(VetRepository vetRepository) {
 		this.vetRepository = vetRepository;
 	}		
 
 	@Transactional(readOnly = true)	
 	public Collection<Vet> findVets() throws DataAccessException {
-		return this.vetRepository.findAll();
-	}
-	
-	@Transactional
-	public Collection<Vet> findAll() {
-		return this.vetRepository.findAll();
-    }
-	
-	@Transactional(readOnly = true)
-	public Optional<Vet> findVetById(final int id) throws DataAccessException {
-		return this.vetRepository.findById(id);
-	}
-	
-	@Transactional
-	public void delete(final Vet vet)  throws DataAccessException {
-		this.vetRepository.deleteById(vet.getId());
-    }
+		return vetRepository.findAll();
+	}	
 
 	@Transactional(readOnly = true)
 	public Vet findVetById(int id) throws DataAccessException {
@@ -90,8 +75,12 @@ public class VetService {
 //		userService.saveUser(vet.getUser());
 //		//creating authorities
 //		authoritiesService.saveAuthorities(vet.getUser().getUsername(), "owner");
-	}		
+	}
+
+	@Transactional
+	public void delete(final Vet vet)  throws DataAccessException {
+//		this.vetRepository.deleteVetRepository(vet.getId());
+		this.vetRepository.deleteById(vet.getId());
+    }	
 
 }
-
-
