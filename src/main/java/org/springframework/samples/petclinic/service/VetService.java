@@ -20,6 +20,13 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
+
+import org.springframework.samples.petclinic.model.Owner;
+import org.springframework.samples.petclinic.model.Pet;
+import org.springframework.samples.petclinic.model.PetType;
+import org.springframework.samples.petclinic.model.Specialty;
+
+
 import org.springframework.samples.petclinic.model.Vet;
 import org.springframework.samples.petclinic.repository.VetRepository;
 import org.springframework.stereotype.Service;
@@ -65,4 +72,26 @@ public class VetService {
 		this.vetRepository.deleteById(vet.getId());
     }
 
+	@Transactional(readOnly = true)
+	public Vet findVetById(int id) throws DataAccessException {
+		return vetRepository.findById(id);
+	}
+
+//	
+//	@Transactional(readOnly = true)
+//	public Collection<Specialty> findSpecialties() throws DataAccessException {
+//		return vetRepository.findSpecialties();
+//	}
+	@Transactional
+	public void saveVet(Vet vet) throws DataAccessException {
+		//creating owner
+		vetRepository.save(vet);		
+		//creating user
+//		userService.saveUser(vet.getUser());
+//		//creating authorities
+//		authoritiesService.saveAuthorities(vet.getUser().getUsername(), "owner");
+	}		
+
 }
+
+
