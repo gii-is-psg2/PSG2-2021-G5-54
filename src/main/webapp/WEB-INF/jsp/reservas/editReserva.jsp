@@ -16,6 +16,7 @@
         <div class="form-group has-feedback">
             <petclinic:inputField label="Fecha inicio" name="fechaInicio"/>
             <petclinic:inputField label="Fecha fin" name="fechaFin"/>
+            <petclinic:selectFieldMap name="pet" label="Mascota" names="${mascotas}" size="5"/>
         </div>
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">

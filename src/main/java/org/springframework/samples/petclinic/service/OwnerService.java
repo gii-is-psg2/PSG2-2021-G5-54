@@ -16,6 +16,7 @@
 package org.springframework.samples.petclinic.service;
 
 import java.util.Collection;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
@@ -75,5 +76,10 @@ public class OwnerService {
 		//creating authorities
 		authoritiesService.saveAuthorities(owner.getUser().getUsername(), "owner");
 	}		
+	
+	@Transactional(readOnly=true)
+    public Optional<Owner> findOwnerByUsername(final String username){
+        return this.ownerRepository.findOwnerByUserUsername(username);
+    }
 
 }

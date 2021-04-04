@@ -15,13 +15,18 @@
  */
 package org.springframework.samples.petclinic.service;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
+import org.springframework.samples.petclinic.model.Owner;
 import org.springframework.samples.petclinic.model.Pet;
 import org.springframework.samples.petclinic.model.PetType;
 import org.springframework.samples.petclinic.model.Visit;
+import org.springframework.samples.petclinic.repository.OwnerRepository;
 import org.springframework.samples.petclinic.repository.PetRepository;
 import org.springframework.samples.petclinic.repository.VisitRepository;
 import org.springframework.samples.petclinic.service.exceptions.DuplicatedPetNameException;
@@ -42,12 +47,14 @@ public class PetService {
 	
 	private VisitRepository visitRepository;
 	
+	private final OwnerService ownerService;
 
 	@Autowired
 	public PetService(PetRepository petRepository,
-			VisitRepository visitRepository) {
+			VisitRepository visitRepository,OwnerService ownerService) {
 		this.petRepository = petRepository;
 		this.visitRepository = visitRepository;
+		this.ownerService = ownerService;
 	}
 
 	@Transactional(readOnly = true)
@@ -78,5 +85,14 @@ public class PetService {
 	public Collection<Visit> findVisitsByPetId(int petId) {
 		return visitRepository.findByPetId(petId);
 	}
+	
+	public List<Pet> findPetsByOwner(final String username){
+        final Optional<Owner> owner = this.ownerService.findOwnerByUsername(username);
+        if(owner.isPresent()) {
+            return this.petRepository.findPetByOwner(owner.get());
+        }else {
+            return new ArrayList<>();
+        }
+    }
 
 }
