@@ -33,7 +33,7 @@
         </c:forEach>
         </tbody>
     </table>
-    <sec:authorize access="hasAuthority('admin')">
+    <sec:authorize access="hasAuthority('owner')">
     	<a class="btn btn-default" href='<spring:url value="/reservas/new" htmlEscape="true"/>'>Añadir reserva</a>
 	</sec:authorize>
 </petclinic:layout>
