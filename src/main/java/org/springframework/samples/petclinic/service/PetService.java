@@ -43,9 +43,9 @@ import org.springframework.util.StringUtils;
 @Service
 public class PetService {
 
-	private PetRepository petRepository;
+	private final PetRepository petRepository;
 	
-	private VisitRepository visitRepository;
+	private final VisitRepository visitRepository;
 	
 	private final OwnerService ownerService;
 
@@ -59,33 +59,34 @@ public class PetService {
 
 	@Transactional(readOnly = true)
 	public Collection<PetType> findPetTypes() throws DataAccessException {
-		return petRepository.findPetTypes();
+		return this.petRepository.findPetTypes();
 	}
 	
 	@Transactional
-	public void saveVisit(Visit visit) throws DataAccessException {
-		visitRepository.save(visit);
+	public void saveVisit(final Visit visit) throws DataAccessException {
+		this.visitRepository.save(visit);
 	}
 
 	@Transactional(readOnly = true)
-	public Pet findPetById(int id) throws DataAccessException {
-		return petRepository.findById(id);
+	public Pet findPetById(final int id) throws DataAccessException {
+		return this.petRepository.findById(id);
 	}
 
 	@Transactional(rollbackFor = DuplicatedPetNameException.class)
-	public void savePet(Pet pet) throws DataAccessException, DuplicatedPetNameException {
-			Pet otherPet=pet.getOwner().getPetwithIdDifferent(pet.getName(), pet.getId());
+	public void savePet(final Pet pet) throws DataAccessException, DuplicatedPetNameException {
+			final Pet otherPet=pet.getOwner().getPetwithIdDifferent(pet.getName(), pet.getId());
             if (StringUtils.hasLength(pet.getName()) &&  (otherPet!= null && otherPet.getId()!=pet.getId())) {            	
             	throw new DuplicatedPetNameException();
             }else
-                petRepository.save(pet);                
+                this.petRepository.save(pet);                
 	}
 
-
-	public Collection<Visit> findVisitsByPetId(int petId) {
-		return visitRepository.findByPetId(petId);
+	@Transactional
+	public Collection<Visit> findVisitsByPetId(final int petId) {
+		return this.visitRepository.findByPetId(petId);
 	}
 	
+
 	public List<Pet> findPetsByOwner(final String username){
         final Optional<Owner> owner = this.ownerService.findOwnerByUsername(username);
         if(owner.isPresent()) {
@@ -93,6 +94,13 @@ public class PetService {
         }else {
             return new ArrayList<>();
         }
+
+	@Transactional
+	public void delete(final Pet p)  throws DataAccessException {
+		//this.petRepository.deleteById(p.getId());
+		this.petRepository.deleteAllVisit(p.getId());
+		this.petRepository.deletePetRepository(p.getId(), p.getOwner().getId());
+
     }
 
 }

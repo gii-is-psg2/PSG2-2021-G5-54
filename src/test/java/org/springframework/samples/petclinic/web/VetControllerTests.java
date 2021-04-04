@@ -56,7 +56,7 @@ class VetControllerTests {
 		Specialty radiology = new Specialty();
 		radiology.setId(1);
 		radiology.setName("radiology");
-		helen.addSpecialty(radiology);
+//		helen.addSpecialty(radiology);
 		given(this.clinicService.findVets()).willReturn(Lists.newArrayList(james, helen));
 	}
         
