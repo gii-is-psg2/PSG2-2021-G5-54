@@ -16,6 +16,7 @@
 package org.springframework.samples.petclinic.service;
 
 import java.util.Collection;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
@@ -66,6 +67,11 @@ public class OwnerService {
 		this.authoritiesService.saveAuthorities(owner.getUser().getUsername(), "owner");
 	}		
 	
+
+	@Transactional(readOnly=true)
+    public Optional<Owner> findOwnerByUsername(final String username){
+        return this.ownerRepository.findOwnerByUserUsername(username);
+
 	@Transactional
 	public void delete(final Owner ow)  throws DataAccessException {
 		this.userService.delete(ow.getUser());
@@ -75,6 +81,7 @@ public class OwnerService {
 	@Transactional
 	public Collection<Owner> findAll() {
 		return (Collection<Owner>) this.ownerRepository.findAll();
+
     }
 
 }

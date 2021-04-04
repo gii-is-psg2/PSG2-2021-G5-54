@@ -16,6 +16,7 @@
 package org.springframework.samples.petclinic.repository;
 
 import java.util.Collection;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -29,7 +30,14 @@ import org.springframework.samples.petclinic.model.Owner;
  * @author Michael Isvy
  * @since 15.1.2013
  */
-public interface OwnerRepository extends Repository<Owner, Integer>, CrudRepository<Owner, Integer> {
+
+public interface OwnerRepository extends CrudRepository<Owner, Integer> {
+
+	/**
+	 * Save an <code>Owner</code> to the data store, either inserting or updating it.
+	 * @param owner the <code>Owner</code> to save
+	 * @see BaseEntity#isNew
+	 */
 
 	/**
 	 * Retrieve <code>Owner</code>s from the data store by last name, returning all owners
@@ -50,5 +58,8 @@ public interface OwnerRepository extends Repository<Owner, Integer>, CrudReposit
 	 */	
 	@Query("SELECT owner FROM Owner owner left join fetch owner.pets WHERE owner.id =:id")
 	public Owner findById(@Param("id") int id);
+	
+	
+	Optional<Owner> findOwnerByUserUsername(String username);
 
 }

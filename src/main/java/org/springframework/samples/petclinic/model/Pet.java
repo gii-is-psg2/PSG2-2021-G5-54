@@ -19,6 +19,9 @@ import org.springframework.beans.support.MutableSortDefinition;
 import org.springframework.beans.support.PropertyComparator;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -26,6 +29,7 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import java.time.LocalDate;
@@ -36,6 +40,7 @@ import java.util.List;
 import java.util.Set;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
 
 /**
  * Simple business object representing a pet.
@@ -44,6 +49,8 @@ import javax.persistence.TemporalType;
  * @author Juergen Hoeller
  * @author Sam Brannen
  */
+@Getter
+@Setter
 @Entity
 @Table(name = "pets")
 public class Pet extends NamedEntity {
@@ -62,6 +69,9 @@ public class Pet extends NamedEntity {
 
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "pet", fetch = FetchType.EAGER)
 	private Set<Visit> visits;
+	
+	//@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy="reserva")
+	//private Set<Reserva> reservas;
 
 	public void setBirthDate(LocalDate birthDate) {
 		this.birthDate = birthDate;

@@ -7,35 +7,35 @@ INSERT INTO users(username,password,enabled) VALUES ('owner1','0wn3r',TRUE);
 INSERT INTO authorities(id,username,authority) VALUES (2,'owner1','owner');
 
 INSERT INTO users(username,password,enabled) VALUES ('owner2','0wn3r',TRUE);
-INSERT INTO authorities(id,username,authority) VALUES (4,'owner2','owner');
+INSERT INTO authorities(id,username,authority) VALUES (3,'owner2','owner');
 
 INSERT INTO users(username,password,enabled) VALUES ('owner3','0wn3r',TRUE);
-INSERT INTO authorities(id,username,authority) VALUES (5,'owner3','owner');
+INSERT INTO authorities(id,username,authority) VALUES (4,'owner3','owner');
 
 INSERT INTO users(username,password,enabled) VALUES ('owner4','0wn3r',TRUE);
-INSERT INTO authorities(id,username,authority) VALUES (6,'owner4','owner');
+INSERT INTO authorities(id,username,authority) VALUES (5,'owner4','owner');
 
 INSERT INTO users(username,password,enabled) VALUES ('owner5','0wn3r',TRUE);
-INSERT INTO authorities(id,username,authority) VALUES (7,'owner5','owner');
+INSERT INTO authorities(id,username,authority) VALUES (6,'owner5','owner');
 
 INSERT INTO users(username,password,enabled) VALUES ('owner6','0wn3r',TRUE);
-INSERT INTO authorities(id,username,authority) VALUES (8,'owner6','owner');
+INSERT INTO authorities(id,username,authority) VALUES (7,'owner6','owner');
 
 INSERT INTO users(username,password,enabled) VALUES ('owner7','0wn3r',TRUE);
-INSERT INTO authorities(id,username,authority) VALUES (9,'owner7','owner');
+INSERT INTO authorities(id,username,authority) VALUES (8,'owner7','owner');
 
 INSERT INTO users(username,password,enabled) VALUES ('owner8','0wn3r',TRUE);
-INSERT INTO authorities(id,username,authority) VALUES (10,'owner8','owner');
+INSERT INTO authorities(id,username,authority) VALUES (9,'owner8','owner');
 
 INSERT INTO users(username,password,enabled) VALUES ('owner9','0wn3r',TRUE);
-INSERT INTO authorities(id,username,authority) VALUES (11,'owner9','owner');
+INSERT INTO authorities(id,username,authority) VALUES (10,'owner9','owner');
 
 INSERT INTO users(username,password,enabled) VALUES ('owner10','0wn3r',TRUE);
-INSERT INTO authorities(id,username,authority) VALUES (12,'owner10','owner');
+INSERT INTO authorities(id,username,authority) VALUES (11,'owner10','owner');
 
 -- One vet user, named vet1 with passwor v3t
 INSERT INTO users(username,password,enabled) VALUES ('vet1','v3t',TRUE);
-INSERT INTO authorities(id,username,authority) VALUES (3,'vet1','veterinarian');
+INSERT INTO authorities(id,username,authority) VALUES (12,'vet1','veterinarian');
 
 INSERT INTO vets VALUES (1, 'James', 'Carter', 'SURGERY');
 INSERT INTO vets VALUES (2, 'Helen', 'Leary', 'SURGERY');
@@ -92,3 +92,5 @@ INSERT INTO visits(id,pet_id,visit_date,description) VALUES (2, 8, '2013-01-02',
 INSERT INTO visits(id,pet_id,visit_date,description) VALUES (3, 8, '2013-01-03', 'neutered');
 INSERT INTO visits(id,pet_id,visit_date,description) VALUES (4, 7, '2013-01-04', 'spayed');
 
+INSERT INTO reservas(id,fecha_inicio,fecha_fin,pet_id) VALUES (1, '2013-01-04', '2013-01-07', 1);
+INSERT INTO reservas(id,fecha_inicio,fecha_fin,pet_id) VALUES (2, '2013-01-04', '2013-01-22', 2);

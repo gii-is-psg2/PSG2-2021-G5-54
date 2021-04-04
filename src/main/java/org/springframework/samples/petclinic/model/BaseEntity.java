@@ -45,5 +45,6 @@ public class BaseEntity {
 	public boolean isNew() {
 		return this.id == null;
 	}
+	
 
 }
