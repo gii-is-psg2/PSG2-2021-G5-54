@@ -2,13 +2,10 @@ package org.springframework.samples.petclinic.model;
 
 import java.time.LocalDate;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.annotations.Cascade;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import lombok.EqualsAndHashCode;
@@ -26,14 +23,13 @@ public class Reserva extends BaseEntity{
 	@Column(name = "fecha_inicio")
 	@DateTimeFormat(pattern = "yyyy/MM/dd")
 	private LocalDate fechaInicio;
-	
+
 	@NotNull
 	@Column(name = "fecha_fin")
 	@DateTimeFormat(pattern = "yyyy/MM/dd")
 	private LocalDate fechaFin;
 
-	
-	@ManyToOne
+	@ManyToOne()
 	@JoinColumn(name = "pet_id")
 	private Pet pet;
 }

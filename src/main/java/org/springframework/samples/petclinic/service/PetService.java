@@ -44,9 +44,9 @@ import org.springframework.util.StringUtils;
 public class PetService {
 
 	private final PetRepository petRepository;
-	
+
 	private final VisitRepository visitRepository;
-	
+
 	private final OwnerService ownerService;
 
 	@Autowired
@@ -61,7 +61,7 @@ public class PetService {
 	public Collection<PetType> findPetTypes() throws DataAccessException {
 		return this.petRepository.findPetTypes();
 	}
-	
+
 	@Transactional
 	public void saveVisit(final Visit visit) throws DataAccessException {
 		this.visitRepository.save(visit);
@@ -75,25 +75,26 @@ public class PetService {
 	@Transactional(rollbackFor = DuplicatedPetNameException.class)
 	public void savePet(final Pet pet) throws DataAccessException, DuplicatedPetNameException {
 			final Pet otherPet=pet.getOwner().getPetwithIdDifferent(pet.getName(), pet.getId());
-            if (StringUtils.hasLength(pet.getName()) &&  (otherPet!= null && otherPet.getId()!=pet.getId())) {            	
+            if (StringUtils.hasLength(pet.getName()) &&  (otherPet!= null && otherPet.getId()!=pet.getId())) {
             	throw new DuplicatedPetNameException();
             }else
-                this.petRepository.save(pet);                
+                this.petRepository.save(pet);
 	}
 
 	@Transactional
 	public Collection<Visit> findVisitsByPetId(final int petId) {
 		return this.visitRepository.findByPetId(petId);
 	}
-	
 
-	public List<Pet> findPetsByOwner(final String username){
+
+	public List<Pet> findPetsByOwner(final String username) {
         final Optional<Owner> owner = this.ownerService.findOwnerByUsername(username);
-        if(owner.isPresent()) {
+        if (owner.isPresent()) {
             return this.petRepository.findPetByOwner(owner.get());
-        }else {
+        } else {
             return new ArrayList<>();
         }
+    }
 
 	@Transactional
 	public void delete(final Pet p)  throws DataAccessException {
