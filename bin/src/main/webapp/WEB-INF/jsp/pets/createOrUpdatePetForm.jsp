@@ -14,32 +14,47 @@
     </jsp:attribute>
     <jsp:body>
         <h2>
-            <c:if test="${pet['new']}">New </c:if> Pet
+            <div class="es"><c:if test="${pet['new']}">Nueva </c:if> Mascota</div>
+            <div class="en"><c:if test="${pet['new']}">New </c:if> Pet</div>
         </h2>
         <form:form modelAttribute="pet"
                    class="form-horizontal">
             <input type="hidden" name="id" value="${pet.id}"/>
             <div class="form-group has-feedback">
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">Owner</label>
+                    <div class="es"><label class="col-sm-2 control-label">Dueño</label></div>
+                    <div class="en"><label class="col-sm-2 control-label">Owner</label></div>
                     <div class="col-sm-10">
                         <c:out value="${pet.owner.firstName} ${pet.owner.lastName}"/>
                     </div>
                 </div>
+                <div class="es">
+                <petclinic:inputField label="Nombre" name="name"/>
+                <petclinic:inputField label="Fecha de Nacimiento" name="birthDate"/>
+                </div>
+                <div class="en">
                 <petclinic:inputField label="Name" name="name"/>
                 <petclinic:inputField label="Birth Date" name="birthDate"/>
+                </div>
                 <div class="control-group">
+                    <div class="es">
+                    <petclinic:selectField name="type" label="Tipo " names="${types}" size="5"/>
+                    </div>
+                    <div class="en">
                     <petclinic:selectField name="type" label="Type " names="${types}" size="5"/>
+                    </div>
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
                     <c:choose>
                         <c:when test="${pet['new']}">
-                            <button class="btn btn-default" type="submit">Add Pet</button>
+                            <div class="es"><button class="btn btn-default" type="submit">Añadir Mascota</button></div>
+                            <div class="en"><button class="btn btn-default" type="submit">Add Pet</button></div>
                         </c:when>
                         <c:otherwise>
-                            <button class="btn btn-default" type="submit">Update Pet</button>
+                            <div class="es"><button class="btn btn-default" type="submit">Actualizar Mascota</button></div>
+                            <div class="en"><button class="btn btn-default" type="submit">Update Pet</button></div>
                         </c:otherwise>
                     </c:choose>
                 </div>
