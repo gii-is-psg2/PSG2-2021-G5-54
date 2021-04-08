@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.Collection;
+import java.util.Optional;
 
 @Service
 public class CauseService {
@@ -29,6 +30,10 @@ public class CauseService {
 
     public Collection<Cause> getByStatus(CauseStatus s){
         return this.causeRepository.getCauseByStatus(s);
+    }
+
+    public Optional<Cause> getById(Integer i){
+        return this.causeRepository.getCauseById(i);
     }
 
     public Collection<Cause> getAllCauses(){

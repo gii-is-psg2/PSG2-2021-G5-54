@@ -26,7 +26,10 @@
             <c:forEach items="${causes}" var="cause">
                 <tr>
                     <td>
-                        <c:out value="${cause.name}"/>
+                        <spring:url value="/causes/{causeID}" var="causeURL">
+                            <spring:param name="causeID" value="${cause.id}"/>
+                        </spring:url>
+                        <a href="${fn:escapeXml(causeURL)}"><c:out value="${cause.name}"/></a>
                     </td>
                     <td>
                         <c:out value="${cause.description}"/>
@@ -45,7 +48,7 @@
                     </td>
                     <sec:authorize access="hasAuthority('owner')">
                         <td>
-                            <spring:url value="{causeId}/donate" var="donateURL">
+                            <spring:url value="causes/{causeId}/donate" var="donateURL">
                                 <spring:param name="causeId" value="${cause.id}"/>
                             </spring:url>
                             <a href="${fn:escapeXml(donateURL)}" class="btn btn-default">Donate</a>

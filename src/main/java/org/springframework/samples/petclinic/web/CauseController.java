@@ -2,6 +2,7 @@ package org.springframework.samples.petclinic.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.samples.petclinic.model.Cause;
+import org.springframework.samples.petclinic.model.Donation;
 import org.springframework.samples.petclinic.model.Owner;
 import org.springframework.samples.petclinic.model.User;
 import org.springframework.samples.petclinic.service.CauseService;
@@ -13,10 +14,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
+import java.time.LocalDateTime;
+import java.util.Collection;
 import java.util.Optional;
 
 @Controller
@@ -25,6 +29,8 @@ public class CauseController {
 
     public static final String CAUSES_LISTING = "causes/causesListing";
     public static final String CAUSE_FORM = "causes/causeForm";
+    public static final String DONATION_FORM = "donations/donationForm";
+    public static final String CAUSE_DETAILS = "causes/causeDetails";
 
     @Autowired
     CauseService causeService;
@@ -73,8 +79,44 @@ public class CauseController {
         }
     }
 
-    @RequestMapping(params="cancel=true")
-    public String doCancel(ModelMap modelMap, Authentication auth) {
-        return listCauses(modelMap, auth);
+    @GetMapping("/{causeID}/donate")
+    public String getNewDonationForm(ModelMap modelMap){
+        modelMap.addAttribute("donation", new Donation());
+        return DONATION_FORM;
+    }
+
+    @PostMapping("/{causeID}/donate")
+    public String postNewDonationForm(@PathVariable("causeID") int causeID,@Valid Donation d, BindingResult bindingResult,ModelMap modelMap,Authentication auth){
+        if (bindingResult.hasErrors()){
+            return DONATION_FORM;
+        }else{
+            Optional<Owner> o = ownerService.findOwnerByUsername(auth.getName());
+            if(o.isPresent()){
+                d.setDate(LocalDateTime.now());
+                d.setCause(causeService.getById(causeID).get());
+                d.setPayer(o.get());
+                this.donationService.save(d,causeService.getById(causeID).get());
+                modelMap.addAttribute("message", "Cause saved successfully ^_^!");
+
+            }else{
+                modelMap.addAttribute("message", "Something went wrong with your session ^_^!");
+            }
+        }
+
+        return "redirect:http://localhost:8080/causes";
+    }
+
+    @GetMapping("/{causeID}")
+    public String getCauseDetails(@PathVariable("causeID") int causeID, ModelMap modelMap, Authentication auth){
+        Optional<Cause> c = this.causeService.getById(causeID);
+        if(c.isPresent()){
+            Collection<Donation> donations = this.donationService.getDonationsByCause(c.get());
+            modelMap.addAttribute("cause", c.get());
+            modelMap.addAttribute("donations", donations);
+            return CAUSE_DETAILS;
+        }else {
+            modelMap.addAttribute("message", "Cant find that Cause ^_^!");
+            return listCauses(modelMap, auth);
+        }
     }
 }
