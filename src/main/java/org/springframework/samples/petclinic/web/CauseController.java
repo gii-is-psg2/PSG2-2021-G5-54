@@ -55,10 +55,10 @@ public class CauseController {
     public String listCauses(ModelMap modelMap, Authentication auth){
         if (auth.isAuthenticated()){
             modelMap.addAttribute("causes", causeService.getAllCauses());
-            return CAUSES_LISTING;
+            return "redirect:http://localhost:8080/causes";
         }else {
             modelMap.addAttribute("message", "You must be logged ^_^!");
-            return "welcome";
+            return "redirect:http://localhost:8080/welcome";
         }
     }
 
@@ -75,7 +75,7 @@ public class CauseController {
         }else{
             this.causeService.save(c);
             modelMap.addAttribute("message", "Cause saved successfully ^_^!");
-            return listCauses(modelMap, auth);
+            return listCauses(modelMap,auth);
         }
     }
 

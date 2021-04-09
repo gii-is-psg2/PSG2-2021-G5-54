@@ -47,12 +47,19 @@
                         <c:out value="${cause.status}"/>
                     </td>
                     <sec:authorize access="hasAuthority('owner')">
-                        <td>
-                            <spring:url value="causes/{causeId}/donate" var="donateURL">
-                                <spring:param name="causeId" value="${cause.id}"/>
-                            </spring:url>
-                            <a href="${fn:escapeXml(donateURL)}" class="btn btn-default">Donate</a>
-                        </td>
+                        <c:choose>
+                            <c:when test="${cause.status == 'CLOSED'}">
+                                <c:out value="Unable to donate"/>
+                            </c:when>
+                            <c:otherwise>
+                                <td>
+                                    <spring:url value="causes/{causeId}/donate" var="donateURL">
+                                        <spring:param name="causeId" value="${cause.id}"/>
+                                    </spring:url>
+                                    <a href="${fn:escapeXml(donateURL)}" class="btn btn-default">Donate</a>
+                                </td>
+                            </c:otherwise>
+                        </c:choose>
                     </sec:authorize>
                 </tr>
             </c:forEach>
