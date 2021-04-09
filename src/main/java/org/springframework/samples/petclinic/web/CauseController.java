@@ -55,7 +55,7 @@ public class CauseController {
     public String listCauses(ModelMap modelMap, Authentication auth){
         if (auth.isAuthenticated()){
             modelMap.addAttribute("causes", causeService.getAllCauses());
-            return "redirect:http://localhost:8080/causes";
+            return CAUSES_LISTING;
         }else {
             modelMap.addAttribute("message", "You must be logged ^_^!");
             return "redirect:http://localhost:8080/welcome";
@@ -75,12 +75,13 @@ public class CauseController {
         }else{
             this.causeService.save(c);
             modelMap.addAttribute("message", "Cause saved successfully ^_^!");
-            return listCauses(modelMap,auth);
+            return "redirect:http://localhost:8080/causes";
         }
     }
 
     @GetMapping("/{causeID}/donate")
-    public String getNewDonationForm(ModelMap modelMap){
+    public String getNewDonationForm(@PathVariable("causeID") int causeID,ModelMap modelMap){
+       // if(this.causeService.getById())
         modelMap.addAttribute("donation", new Donation());
         return DONATION_FORM;
     }
