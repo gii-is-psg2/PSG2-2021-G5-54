@@ -49,7 +49,9 @@
                     <sec:authorize access="hasAuthority('owner')">
                         <c:choose>
                             <c:when test="${cause.status == 'CLOSED'}">
-                                <c:out value="Unable to donate"/>
+                                <td>
+                                    <c:out value="Unable to donate"/>
+                                </td>
                             </c:when>
                             <c:otherwise>
                                 <td>
