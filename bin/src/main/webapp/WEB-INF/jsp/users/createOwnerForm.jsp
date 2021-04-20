@@ -8,26 +8,40 @@
 
 <petclinic:layout pageName="owners">
     <h2>
-        <c:if test="${owner['new']}">New </c:if> Owner
+        <div class="es"><c:if test="${owner['new']}">Nuevo </c:if> Dueño</div>
+        <div class="en"><c:if test="${owner['new']}">New </c:if> Owner</div>
     </h2>
     <form:form modelAttribute="owner" class="form-horizontal" id="add-owner-form">
         <div class="form-group has-feedback">
-            <petclinic:inputField label="First Name" name="firstName"/>
-            <petclinic:inputField label="Last Name" name="lastName"/>
+        	<div class="es">
+            <petclinic:inputField label="Nombre" name="firstName"/>
+            <petclinic:inputField label="Apellidos" name="lastName"/>
+            <petclinic:inputField label="Dirección" name="address"/>
+            <petclinic:inputField label="Ciudad" name="city"/>
+            <petclinic:inputField label="Teléfono" name="telephone"/>
+            <petclinic:inputField label="Usuario" name="user.username"/>
+            <petclinic:inputField label="Contraseña" name="user.password"/>
+            </div>
+            <div class="en">
+            <petclinic:inputField label="Name" name="firstName"/>
+            <petclinic:inputField label="Surname" name="lastName"/>
             <petclinic:inputField label="Address" name="address"/>
             <petclinic:inputField label="City" name="city"/>
-            <petclinic:inputField label="Telephone" name="telephone"/>
+            <petclinic:inputField label="Phone Number" name="telephone"/>
             <petclinic:inputField label="Username" name="user.username"/>
             <petclinic:inputField label="Password" name="user.password"/>
+            </div>
         </div>
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
                 <c:choose>
                     <c:when test="${owner['new']}">
-                        <button class="btn btn-default" type="submit">Add Owner</button>
+                        <div class="es"><button class="btn btn-default" type="submit">Añadir Dueño</button></div>
+                        <div class="en"><button class="btn btn-default" type="submit">Add Owner</button></div>
                     </c:when>
                     <c:otherwise>
-                        <button class="btn btn-default" type="submit">Update Owner</button>
+                        <div class="es"><button class="btn btn-default" type="submit">Actualizar Dueño</button></div>
+                        <div class="en"><button class="btn btn-default" type="submit">Update Owner</button></div>
                     </c:otherwise>
                 </c:choose>
             </div>

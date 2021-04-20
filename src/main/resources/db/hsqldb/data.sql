@@ -94,3 +94,10 @@ INSERT INTO visits(id,pet_id,visit_date,description) VALUES (4, 7, '2013-01-04',
 
 INSERT INTO reservas(id,fecha_inicio,fecha_fin,pet_id) VALUES (1, '2013-01-04', '2013-01-07', 1);
 INSERT INTO reservas(id,fecha_inicio,fecha_fin,pet_id) VALUES (2, '2013-01-04', '2013-01-22', 2);
+
+/*CAUSES*/
+INSERT INTO causes(id, name, description, org, b_target, current_b, status) VALUES(1, 'Dolphin Savers', 'Clean the ocean', 'cthulhu clan', 1000, 200, 'OPEN');
+
+/*DONATIONS*/
+INSERT INTO donations(id, quantity, date, payer_id, cause_id) VALUES (1, 200, '2020-11-20 23:33:20', 1, 1);
+

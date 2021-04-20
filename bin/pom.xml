@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>es.us.psg2</groupId>
     <artifactId>spring-petclinic.psg2.2021-G5-54</artifactId>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
     <name>PSG2-2021-G5-54 Petclinic</name>
 
     <parent>
@@ -13,7 +13,7 @@
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.2.4.RELEASE</version>
     </parent>
-    
+
   <developers>
     <developer>
       <id>ferhidagu</id>
@@ -24,7 +24,7 @@
         <role>Developer</role>
       </roles>
     </developer>
-    
+
     <developer>
       <id>juagarcri</id>
       <name>Juan Manuel García Criado</name>
@@ -34,7 +34,7 @@
         <role>Developer</role>
       </roles>
     </developer>
-    
+
     <developer>
       <id>luirodgar3</id>
       <name>Luis Rodrigo García</name>
@@ -45,7 +45,7 @@
         <role>Developer</role>
       </roles>
     </developer>
-    
+
     <developer>
       <id>julcarcos</id>
       <name>Julian Carrascosa Cosano </name>
@@ -55,7 +55,7 @@
         <role>developer</role>
       </roles>
     </developer>
-    
+
         <developer>
       <id>ivaromcos</id>
       <name>Ivan Romero Costa</name>
@@ -65,7 +65,7 @@
         <role>developer</role>
       </roles>
     </developer>
-    
+
         <developer>
       <id>alesancab</id>
       <name>Alejandro Sanabria Cabeza</name>
@@ -113,16 +113,16 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
-        <dependency>  
-            <groupId>org.springframework.security</groupId>  
-            <artifactId>spring-security-taglibs</artifactId>  
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-taglibs</artifactId>
         </dependency>
         <!-- Databases - Uses H2 by default -->
         <!-- dependency>
                 <groupId>org.hsqldb</groupId>
                 <artifactId>hsqldb</artifactId>
                 <scope>runtime</scope>
-        </dependency-->        
+        </dependency-->
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
@@ -132,7 +132,7 @@
             <artifactId>mysql-connector-java</artifactId>
             <scope>runtime</scope>
         </dependency>
-        <!-- validation 
+        <!-- validation
         <dependency>
                 <groupId>org.hibernate</groupId>
                 <artifactId>hibernate-validator</artifactId>
@@ -198,11 +198,11 @@
             <artifactId>junit</artifactId>
             <groupId>junit</groupId>
         </dependency>
-        <!-- Development tools>
+        <!-- Development tools -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-        </dependency -->
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
@@ -217,7 +217,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <executions>
                     <execution>
-                        <!-- Spring Boot Actuator displays build-related information if a META-INF/build-info.properties 
+                        <!-- Spring Boot Actuator displays build-related information if a META-INF/build-info.properties
                         file is present -->
                         <goals>
                             <goal>build-info</goal>
@@ -253,7 +253,7 @@
                 </executions>
             </plugin>
 
-            <!-- Spring Boot Actuator displays build-related information if a git.properties 
+            <!-- Spring Boot Actuator displays build-related information if a git.properties
             file is present at the classpath -->
             <plugin>
                 <groupId>pl.project13.maven</groupId>
