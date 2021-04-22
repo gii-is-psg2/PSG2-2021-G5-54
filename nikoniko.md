@@ -37,5 +37,12 @@ In the retrospective meeting, the team has a discussion about those results.
 | Day 1         | 😄        |                |                |                |                |                |
 | Day 2         |               |    :smile:            |                |                |                |                |
 | Day 3         |               |    :worried:            |                |                |                |                |
-| Day 4         |  :neutral_face:             |               |                |                |                |                |
-...
+| Day 4         |               |               |                |                |                |                |
+| Day 5         |               |               |                |                |                |                |
+| Day 6         |               |               |                |                |                |                |
+| Day 7         |😄              |               |                |                |                |                |
+| Day 8         |               |               |                |                |                |                |
+| Day 9         |:worried:               |               |                |                |                |                |
+| Day 10        |              |               |                |                |                |                |
+
+
