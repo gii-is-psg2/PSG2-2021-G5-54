@@ -1,4 +1,4 @@
-# Niko Niko Calendar of team X
+# Niko Niko Calendar of team 54
 ## Introduction
 Some interesting links about what a Niko Niko calendar is and opinions about its use in software development:
 
@@ -37,7 +37,7 @@ In the retrospective meeting, the team has a discussion about those results.
 | Day 1         | 😄        |                |                |                |                |                |
 | Day 2         |               |    :smile:            |                |                |                |                |
 | Day 3         |               |    :worried:            |                |                |                |                |
-| Day 4         |               |               |                |                |                |                |
+| Day 4         |😫               |               |                |                |                |                |
 | Day 5         |               |               |                |                |                |                |
 | Day 6         |               |               |                |                |                |                |
 | Day 7         |😄              |               |                |                |                |                |
