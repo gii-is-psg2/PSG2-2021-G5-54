@@ -38,7 +38,7 @@ In the retrospective meeting, the team has a discussion about those results.
 | 09/04/21         |               |                |     😃           |                |                |                |
 | 15/04/21        | 😐                |               |                |                |                |                |
 | 16/04/21         | 😄              |               |                |                |                |                |
-| 22/04/21         |  😐              |               |                |                |                |  😐                 |
+| 22/04/21         |  😐              |               |                |                |😐                |                   |
 | Day 7         |              |               |                |                |                |                |
 | Day 8         |               |               |                |                |                |                |
 | Day 9         |               |               |                |                |                |                |
