@@ -34,9 +34,8 @@ In the retrospective meeting, the team has a discussion about those results.
 
 | Day           | Alesancab1(Alejandro)    | fernando-hidalgo(Fernando)  | Juanmagc99(Juanma)     | Sakeed(Julián)     | LuisUsrDev(Luis)     | ivaromcos-us(Iván)    |
 | ------------- | ------------- | -------------  | -------------  | -------------  | -------------  | -------------  |
-| Day 1         | 😄        |                |                |                |                |                |
-| Day 2         |               |    :smile:            |                |                |                |                |
-| Day 3         |               |    :worried:            |                |                |                |                |
+| 08/04/21         |               |                |     😐           |                |                |                |
+| 08/04/21         |               |                |     😃           |                |                |                |
 | Day 4         |😫               |               |                |                |                |                |
 | Day 5         |               |               |                |                |                |                |
 | Day 6         |               |               |                |                |                |                |
