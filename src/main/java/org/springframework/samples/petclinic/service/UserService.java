@@ -15,13 +15,13 @@
  */
 package org.springframework.samples.petclinic.service;
 
-
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.samples.petclinic.model.User;
 import org.springframework.samples.petclinic.repository.UserRepository;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -46,13 +46,25 @@ public class UserService {
 		user.setEnabled(true);
 		this.userRepository.save(user);
 	}
-	
+
 	public Optional<User> findUser(final String username) {
 		return this.userRepository.findById(username);
 	}
-	
+
+	// Funcion añadida para realizar adopciones
+	public User getUser() {
+		User usuario1 = new User();
+		try {
+			Optional<User> user = findUser(SecurityContextHolder.getContext().getAuthentication().getName());
+			usuario1 = user.get();
+		} catch (Exception e) {
+
+		}
+		return usuario1;
+	}
+
 	@Transactional
-    public void delete(final User u){
-	    this.userRepository.delete(u);
-    }
+	public void delete(final User u) {
+		this.userRepository.delete(u);
+	}
 }
