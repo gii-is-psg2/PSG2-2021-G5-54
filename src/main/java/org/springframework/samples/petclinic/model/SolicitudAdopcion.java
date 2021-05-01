@@ -11,16 +11,16 @@ import javax.persistence.Table;
 @Entity
 	@Table(name= "solicitudadopcion")
 	public class SolicitudAdopcion extends BaseEntity{
-		@JoinColumn(name="owner")
-		@ManyToOne(fetch=FetchType.EAGER)
 		
+		@JoinColumn(name="owner_id")
+		@ManyToOne(fetch=FetchType.EAGER)
 		private Owner owner;
 		
 		@Column(name = "descripcion")
 		private String descripcion;
 		
 		@ManyToOne (cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-		@JoinColumn(name = "adopcion")
+		@JoinColumn(name = "adopcion_id")
 		private Adopciones adopcion;
 
 		public Owner getOwner() {

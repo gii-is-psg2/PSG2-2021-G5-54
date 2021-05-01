@@ -101,3 +101,10 @@ INSERT INTO causes(id, name, description, org, b_target, current_b, status) VALU
 /*DONATIONS*/
 INSERT INTO donations(id, quantity, date, payer_id, cause_id) VALUES (1, 200, '2020-11-20 23:33:20', 1, 1);
 
+
+INSERT INTO adopciones(id,pet_id,owner_id) VALUES (1,1,1);    
+INSERT INTO adopciones(id,pet_id,owner_id) VALUES (2,2,2);
+
+INSERT INTO solicitudadopcion(id,owner_id,descripcion,adopcion_id) VALUES (1,1,'Me encantaría que fuese un perro pequeño',1);
+INSERT INTO solicitudadopcion(id,owner_id,descripcion,adopcion_id) VALUES (2,2,'Me interesaría un perro guardian',2);
+

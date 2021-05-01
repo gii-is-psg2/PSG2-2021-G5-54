@@ -79,7 +79,11 @@ function changeLanguageEng() {
 					<div class="en"><span>Vets</span></div>
 				</petclinic:menuItem>
 				
-
+				<petclinic:menuItem active="${name eq 'adopciones'}" url="/adopciones"
+					title="adopciones">
+					<span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+					<span>Adopciones</span>
+				</petclinic:menuItem>
 				
 				<petclinic:menuItem active="${name eq 'reservas'}" url="/reservas"
 					title="reservas">

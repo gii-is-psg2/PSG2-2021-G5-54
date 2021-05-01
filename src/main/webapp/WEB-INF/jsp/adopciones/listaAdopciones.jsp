@@ -21,11 +21,11 @@
 		<tbody>
 			<c:forEach items="${adopciones}" var="adopcion">
 				<tr>
-					<td><c:out value="${adopcion.pet.name}" /></td>
+					<td><c:out value="${adopcion.pet}" /></td>
 					<td><c:out value="${adopcion.pet.type}" /></td>
 					<td><c:out value="${adopcion.owner.address}" /></td>
 					<td><c:out value="${adopcion.owner.city}" /></td>
-					<td><spring:url value="/adopcion/{adopcionId}/adopcion"
+					<td><spring:url value="/adopciones/{adopcionId}/adopcion"
 							var="adopcion">
 							<spring:param name="adopcionId" value="${adopcion.id}" />
 						</spring:url> <a href="${fn:escapeXml(adopcion)}" class="btn btn-default">Adoptar</a></td>

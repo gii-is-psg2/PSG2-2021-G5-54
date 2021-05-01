@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class AdopcionController {
-	private static final String VISTA_DESCRIPCION = "adopciones/Editadopciones";
+	private static final String VISTA_DESCRIPCION = "adopciones/editAdopcion";
 	private static final String DETALLES_OWNER = "owners/ownerDetails";
 	private static final String ADOPCIONES = "/adopciones";
 
@@ -48,8 +48,8 @@ public class AdopcionController {
 
 	@GetMapping(value = { "/adopciones" })
 	public String ListaAdopciones(final ModelMap model) {
-		model.addAttribute("adopcion", this.adopcionService.findAll());
-		return "adopciones/Listaadopciones";
+		model.addAttribute("adopciones", this.adopcionService.findAll());
+		return "adopciones/listaAdopciones";
 	}
 
 	@GetMapping(value = "/adopciones/{adopcionId}/adopcion")
@@ -66,7 +66,7 @@ public class AdopcionController {
 	}
 
 	@PostMapping(value = "/adopciones/{adopcionId}/adopcion")
-	public String solicitudAdopcion(@Valid SolicitudAdopcion solicitudadopcion, BindingResult reuslt,
+	public String solicitudAdopcion(@Valid SolicitudAdopcion solicitudadopcion, BindingResult result,
 			@PathVariable("adopcionId") int adopcionId, ModelMap model) {
 		Adopciones a = this.adopcionService.findAdopcionById(adopcionId);
 		Pet petAdoptado = a.getPet();
@@ -77,15 +77,15 @@ public class AdopcionController {
 		solicitudadopcion.setOwner(owner);
 		System.out.println(owner);
 		solicitudadopcion.setAdopcion(a);
-
-		if (reuslt.hasErrors()) {
+		model.addAttribute(solicitudadopcion);
+		if (result.hasErrors()) {
 			model.addAttribute("solicitudAdopcion", solicitudadopcion);
 			model.addAttribute("pet", petAdoptado);
 			return VISTA_DESCRIPCION;
 		} else {
 			this.solicitudadopcionService.saveAdopcion(solicitudadopcion);
 		}
-		return "redirect:" + ADOPCIONES;
+		return ListaAdopciones(model);
 	}
 
 	@GetMapping(value = "/owners/{ownerId}/pets/{petId}/adopciones/new")
