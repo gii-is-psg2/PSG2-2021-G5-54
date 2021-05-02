@@ -44,6 +44,6 @@ In the retrospective meeting, the team has a discussion about those results.
 | 29/04/21         |    😐          |               |                |                |                |                |
 | 30/04/21         |    😃            |     😃            |     😃             |                |    😃              |   😃               |
 | 01/05/21         |    ☹️           |                 |                  |                |    😃              |                 |
-| Day 10        |              |               |                |                |                |                |
+| 02/05/21        |              |               |                |                |   😐             |                |
 
 
