@@ -13,4 +13,7 @@ public interface SolicitudAdopcionRepository extends CrudRepository<SolicitudAdo
 
 	@Query("SELECT a FROM SolicitudAdopcion a")
 	List<SolicitudAdopcion> findAll();
+	
+	@Query(value="SELECT * FROM SolicitudAdopcion WHERE adopcion_id =?1", nativeQuery=true)
+	List<SolicitudAdopcion> findSolicitudByAdopcionId(int adopcionId) throws DataAccessException;
 }

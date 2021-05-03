@@ -33,7 +33,7 @@
 	<form:form modelAttribute="solicitudAdopcion" id="add-adopcion-form">
 		<div class="form-group">
 			<div> 
-				<input type='hidden' value='${solicitudAdopcion.owner.id}' name='owner'>
+				<input type='hidden' value='${adopcion.owner.id}' name='owner'>
 				<input type='hidden' value='${solicitudAdopcion.adopcion.id}' name='adopcion'>
 				<petclinic:inputField label="Descripcion de la adopcion" name="descripcion" />
 				<button class="btn btn-default" type="submit">Solicitar	adopción</button>
