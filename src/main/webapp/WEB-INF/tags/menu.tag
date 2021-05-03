@@ -41,7 +41,7 @@ function changeLanguageEng() {
 </script>
 
 <nav class="navbar navbar-default" role="navigation">
-<button onclick="changeLanguageEsp()">Espa�ol</button>
+<button onclick="changeLanguageEsp()">Español</button>
 <button onclick="changeLanguageEng()">English</button>
 
 	<div class="container">
@@ -85,6 +85,13 @@ function changeLanguageEng() {
 					title="reservas">
 					<span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
 					<span>Hotel</span>
+				</petclinic:menuItem>
+				
+				<petclinic:menuItem active="${name eq 'adoption'}" url="/adoption"
+					title="adoption">
+					<span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+					<div class="es"><span>Adopciones</span></div>
+					<div class="en"><span>Adoptions</span></div>
 				</petclinic:menuItem>
 
 				<petclinic:menuItem active="${name eq 'error'}" url="/oups"
