@@ -36,7 +36,6 @@ public class SolicitudController {
 	@GetMapping("/{adoptionId}/requests")
 	public String listSolicitudes(@PathVariable("adoptionId") final Integer adoptionId, final ModelMap model) {
 		final List<Solicitud> requests = this.solicitudService.findByAdoptionId(adoptionId);
-		System.out.println(requests.toString());
 		model.put("requests", requests);
 		model.put("username", SecurityContextHolder.getContext().getAuthentication().getName());
 		return "solicitud/requestsList";
@@ -56,7 +55,7 @@ public class SolicitudController {
 
         if (result.hasErrors()) {
         	model.addAttribute("solicitud", solicitud);
-			model.addAttribute("message", "There was an error in the form. Try again");
+			model.addAttribute("message", "ERROR! Try again");
         	return "solicitud/createOrUpdateRequestForm";
         } else {
 			final String username = SecurityContextHolder.getContext().getAuthentication().getName();
@@ -96,7 +95,7 @@ public class SolicitudController {
 
 		this.adopcionService.deleteAdopcionByIdAndSolicitudes(adoptionId);
 
-		model.addAttribute("message", "The adoption request was accepted succesfully.");
+		model.addAttribute("message", "The adoption was accepted succesfully.");
         
         return this.listSolicitudes(adoptionId, model);
     }
@@ -107,7 +106,7 @@ public class SolicitudController {
 
 		this.adopcionService.deleteAdopcionByIdAndSolicitudes(adoptionId);
 
-		model.addAttribute("message", "The adoption request was deleted succesfully.");
+		model.addAttribute("message", "The adoption was deleted succesfully.");
         
         return "redirect:/owners/{ownerId}";
     }

@@ -39,8 +39,8 @@ public class AdopcionController {
 		model.put("adoptions", adoptions);
 		final String username =  SecurityContextHolder.getContext().getAuthentication().getName();
 		model.put("username", username);
-		final List<Solicitud> l = this.solicitudService.findAll();
-		final List<Solicitud> listaSolicitudes = l.stream().filter(x->x.getNewOwner().getUser().getUsername()==username).collect(Collectors.toList());
+		final List<Solicitud> listTodasSolicitudes = this.solicitudService.findAll();
+		final List<Solicitud> listaSolicitudes = listTodasSolicitudes.stream().filter(x->x.getNewOwner().getUser().getUsername()==username).collect(Collectors.toList());
 		model.put("listaSolicitudes", listaSolicitudes);
 		return "adopcion/adoptionsList";
 	}
