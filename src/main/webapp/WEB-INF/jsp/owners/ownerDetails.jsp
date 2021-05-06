@@ -93,6 +93,33 @@
                                 <div class="es"><a href="${fn:escapeXml(visitUrl)}">Añadir Visita</a></div>
                                 <div class="en"><a href="${fn:escapeXml(visitUrl)}">Edit Visit</a></div>
                             </td>
+                          
+                          
+                          <c:set var="aux" value="0"/>
+                        <c:forEach var="adop" items="${la}">
+                        	<c:choose>
+                        		<c:when test="${adop.pet.id == pet.id}">
+                        			<dt>Adopcion</dt>
+                        			<dd>
+                        			<a href='<spring:url value="/adoption/${adop.id}/requests" htmlEscape="true"/>'>Ver</a>
+                        			<br/>
+                        			<a href='<spring:url value="/adoption/${adop.id}/delete/owner/${owner.id}" htmlEscape="true"/>'>Eliminar</a>
+                        			</dd>
+                        			<c:set var="aux" value="1"/>
+                        		</c:when>	
+                        	</c:choose>
+                        </c:forEach>
+                        
+                        
+                        	
+                        		<dt>
+                           	 	<spring:url value="/adoption/pet/{petId}/new" var="adoptionUrl">
+                              	 	 <spring:param name="petId" value="${pet.id}"/>
+                            		</spring:url>
+                           		 <a href="${fn:escapeXml(adoptionUrl)}">Solicitar</a>
+                        		</dt>
+                        
+                            
                             <td class="text-left">
                 				<a href="/owners/${owner.id}/pets/${pet.id}/delete">
                 					<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
