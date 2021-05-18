@@ -1,10 +1,7 @@
 package org.springframework.samples.petclinic.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.samples.petclinic.model.Cause;
-import org.springframework.samples.petclinic.model.Donation;
-import org.springframework.samples.petclinic.model.Owner;
-import org.springframework.samples.petclinic.model.User;
+import org.springframework.samples.petclinic.model.*;
 import org.springframework.samples.petclinic.service.CauseService;
 import org.springframework.samples.petclinic.service.DonationService;
 import org.springframework.samples.petclinic.service.OwnerService;
@@ -73,6 +70,7 @@ public class CauseController {
         if (bindingResult.hasErrors()){
             return CAUSE_FORM;
         }else{
+            c.setStatus(CauseStatus.OPEN);
             this.causeService.save(c);
             modelMap.addAttribute("message", "Cause saved successfully ^_^!");
             return "redirect:http://localhost:8080/causes";

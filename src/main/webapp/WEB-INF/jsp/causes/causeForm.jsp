@@ -17,7 +17,6 @@
             <petclinic:inputField label="Organization" name="org"/>
             <petclinic:inputField label="Budget Target" name="bTarget"/>
             <petclinic:inputField label="Current Budget" name="currentB"/>
-            <petclinic:inputField label="Status" name="status"/>
         </div>
             <button class="btn btn-default" type="submit">add Cause</button>
     </form:form>
