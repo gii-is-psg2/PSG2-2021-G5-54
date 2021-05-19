@@ -24,19 +24,17 @@
 
 <petclinic:layout pageName="reservas">
 <jsp:body>
-    <h2>
-        Reserva
-    </h2>
+    <h2><spring:message code="head.books"/></h2>
     <form:form name="reservarForm" modelAttribute="reserva" class="form-horizontal" id="add-reserva-form" action="/reservas/save" onsubmit="return validateForm();">
         <div class="form-group has-feedback">
-            <petclinic:inputField label="Fecha inicio" name="fechaInicio"/>
-            <petclinic:inputField label="Fecha fin" name="fechaFin"/>
+            <petclinic:inputField translate="yes" label="table.date_in" name="fechaInicio"/>
+            <petclinic:inputField translate="yes" label="table.date_end" name="fechaFin"/>
             <petclinic:selectFieldMap name="pet" label="Mascota" names="${mascotas}" size="5"/>
         </div>
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
                <input type="hidden" name="id" value="${reserva.id}"/>
-               <button class="btn btn-default" type="submit">Guardar</button>
+               <button class="btn btn-default" type="submit"><spring:message code="button.save"/></button>
             </div>
         </div>
     </form:form>

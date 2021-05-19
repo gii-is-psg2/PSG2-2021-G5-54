@@ -10,16 +10,14 @@
 
 <petclinic:layout pageName="owners">
 
-    <div class="es"><h2>Buscar Dueños</h2></div>
-    <div class="en"><h2>Find Owner</h2></div>
+    <h2><spring:message code="head.f_owners"/></h2>
 
     
     <form:form modelAttribute="owner" action="/owners" method="get" class="form-horizontal"
                id="search-owner-form">
         <div class="form-group">
             <div class="control-group" id="lastName">
-                <div class="es"><label class="col-sm-2 control-label">Apellidos </label></div>
-                <div class="en"><label class="col-sm-2 control-label">Surname </label></div>
+                <label class="col-sm-2 control-label"><spring:message code="form.surname"/></label>
                 <div class="col-sm-10">
                     <form:input class="form-control" path="lastName" size="30" maxlength="80"/>
                     <span class="help-inline"><form:errors path="*"/></span>
@@ -28,8 +26,7 @@
         </div>
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-                <div class="es"><button type="submit" class="btn btn-default">Buscar Dueño</button></div>
-                <div class="en"><button type="submit" class="btn btn-default">Find Owner</button></div>
+                <button type="submit" class="btn btn-default"><spring:message code="button.find"/></button>
             </div>
         </div>
 
@@ -37,8 +34,7 @@
 
     <br/> 
     <sec:authorize access="hasAuthority('admin')">
-		<div class="es"><a class="btn btn-default" href='<spring:url value="/owners/new" htmlEscape="true"/>'>Añadir Dueño</a></div>
-		<div class="en"><a class="btn btn-default" href='<spring:url value="/owners/new" htmlEscape="true"/>'>Add Owner</a></div>
+		<a class="btn btn-default" href='<spring:url value="/owners/new" htmlEscape="true"/>'><spring:message code="button.add"/></a>
 	</sec:authorize>
 	
 </petclinic:layout>

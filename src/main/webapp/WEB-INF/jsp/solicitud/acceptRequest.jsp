@@ -7,18 +7,16 @@
 <%@ taglib prefix="petclinic" tagdir="/WEB-INF/tags" %>
 
 <petclinic:layout pageName="acceptRequest">
-        <h2>
-            <div class="es">Aceptar Solicitud</div><div class="en">Accept Request</div>
-        </h2>
-
+        <h2><spring:message code="head.request"/></h2>
+        
         <div>
             <table id="requestsTable" class="table table-striped table-header">
                 <thead>
                 <tr>
-                    <th style="width: 150px;"><div class="es">Nombre</div><div class="en">Name</div></th>
-                    <th style="width: 150px;"><div class="es">Dirección</div><div class="en">Address</div></th>
-                    <th style="width: 150px;"><div class="es">Teléfono</div><div class="en">Phone</div></th>
-                    <th style="width: 150px;"><div class="es">Fecha</div><div class="en">Date</div></th>
+                    <th style="width: 150px;"><spring:message code="table.name"/></th>
+                    <th style="width: 150px;"><spring:message code="form.address"/></th>
+                    <th style="width: 150px;"><spring:message code="form.phone"/></th>
+                    <th style="width: 150px;"><spring:message code="head.date"/></th>
                     <th style="width: 150px;">Info</th>
                 </tr>
                 </thead>
@@ -47,8 +45,7 @@
         <form:form modelAttribute="solicitud" class="form-horizontal" id="add-adoption-form">
             <div class="form-group">
                <div class="col-sm-offset-2 col-sm-3"></div>
-                   <button class="btn  btn-success" type="submit"><div class="es">Confirmar</div><div class="en">Confirm</div>></button>
+                   <button class="btn  btn-success" type="submit"><spring:message code="head.date"/></button>
                </div>
-           </div>
        </form:form>
 </petclinic:layout>

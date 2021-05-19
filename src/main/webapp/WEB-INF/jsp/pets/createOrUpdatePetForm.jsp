@@ -14,47 +14,32 @@
     </jsp:attribute>
     <jsp:body>
         <h2>
-            <div class="es"><c:if test="${pet['new']}">Nueva </c:if> Mascota</div>
-            <div class="en"><c:if test="${pet['new']}">New </c:if> Pet</div>
+            <c:if test="${pet['new']}"><spring:message code="text.new"/></c:if> <spring:message code="text.pet"/>
         </h2>
         <form:form modelAttribute="pet"
                    class="form-horizontal">
             <input type="hidden" name="id" value="${pet.id}"/>
             <div class="form-group has-feedback">
                 <div class="form-group">
-                    <div class="es"><label class="col-sm-2 control-label">Dueño</label></div>
-                    <div class="en"><label class="col-sm-2 control-label">Owner</label></div>
+                    <label class="col-sm-2 control-label"><spring:message code="text.owner"/></label>
                     <div class="col-sm-10">
                         <c:out value="${pet.owner.firstName} ${pet.owner.lastName}"/>
                     </div>
                 </div>
-                <div class="es">
-                <petclinic:inputField label="Nombre" name="name"/>
-                <petclinic:inputField label="Fecha de Nacimiento" name="birthDate"/>
-                </div>
-                <div class="en">
-                <petclinic:inputField label="Name" name="name"/>
-                <petclinic:inputField label="Birth Date" name="birthDate"/>
-                </div>
+                <petclinic:inputField translate="yes" label="form.firstname" name="name"/>
+                <petclinic:inputField translate="yes" label="table.birth" name="birthDate"/>
                 <div class="control-group">
-                    <div class="es">
-                    <petclinic:selectField name="type" label="Tipo " names="${types}" size="5"/>
-                    </div>
-                    <div class="en">
-                    <petclinic:selectField name="type" label="Type " names="${types}" size="5"/>
-                    </div>
+                    <petclinic:selectField translate="yes" name="type" label="table.type" names="${types}" size="5"/>
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
                     <c:choose>
                         <c:when test="${pet['new']}">
-                            <div class="es"><button class="btn btn-default" type="submit">Añadir Mascota</button></div>
-                            <div class="en"><button class="btn btn-default" type="submit">Add Pet</button></div>
+                            <button class="btn btn-default" type="submit"><spring:message code="button.add"/></button>
                         </c:when>
                         <c:otherwise>
-                            <div class="es"><button class="btn btn-default" type="submit">Actualizar Mascota</button></div>
-                            <div class="en"><button class="btn btn-default" type="submit">Update Pet</button></div>
+                            <button class="btn btn-default" type="submit"><spring:message code="button.update"/></button>
                         </c:otherwise>
                     </c:choose>
                 </div>

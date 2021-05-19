@@ -8,9 +8,9 @@
 
 <petclinic:layout pageName="Crear Editar Adopcion">
         <h2>
-             <c:if test="${adopcion['new']}"><div class="es">Nueva</div><div class="en">New</div> 
+             <c:if test="${adopcion['new']}"><spring:message code="text.new"/>
              </c:if> 
-             <div class="es">Adopcion</div><div class="en">Adoption</div>
+             <spring:message code="head.adoption_s"/>
         </h2>
      
         <form:form modelAttribute="adopcion" class="form-horizontal" id="add-adoption-form">
@@ -23,10 +23,10 @@
                 <div class="col-sm-offset-2 col-sm-10">
                     <c:choose>
                         <c:when test="${adopcion['new']}">
-                            <button class="btn btn-default" type="submit"><div class="es">Añadir</div><div class="en">Add</div></button>
+                            <button class="btn btn-default" type="submit"><spring:message code="button.add"/></button>
                         </c:when>
                         <c:otherwise>
-                            <button class="btn btn-default" type="submit"><div class="es">Actualizar</div><div class="en">Update</div></button>
+                            <button class="btn btn-default" type="submit"><spring:message code="button.update"/></button>
                         </c:otherwise>
                     </c:choose>
                 </div>

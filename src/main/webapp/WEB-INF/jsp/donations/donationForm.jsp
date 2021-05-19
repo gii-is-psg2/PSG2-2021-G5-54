@@ -14,7 +14,7 @@
         <div class="form-group has-feedback">
             <petclinic:inputField label="Quantity" name="quantity"/>
         </div>
-        <button class="btn btn-default" type="submit">add Donation</button>
+        <button class="btn btn-default" type="submit"><spring:message code="button.donate"/></button>
     </form:form>
-    <button class="btn btn-default" onclick="window.location.href = '/causes'">Cancel</button>
+    <button class="btn btn-default" onclick="window.location.href = '/causes'"><spring:message code="button.cancel"/></button>
 </petclinic:layout>

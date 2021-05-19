@@ -8,17 +8,17 @@
 
 
 <petclinic:layout pageName="owners">
-    <div class="es"><h2>Dueños</h2></div>
-    <div class="en"><h2>Owners</h2></div>
+    <h2><spring:message code="menu.owner"/></h2>
 
     <table id="ownersTable" class="table table-striped">
         <thead>
         <tr>
-            <th style="width: 150px;"><div class="es">Nombre</div><div class="en">Name</div></th>
-            <th style="width: 200px;"><div class="es">Dirección</div><div class="en">Address</div></th>
-            <th><div class="es">Ciudad</div><div class="en">City</div></th>
-            <th style="width: 120px"><div class="es">Teléfono</div><div class="en">Phone Address</div></th>
-            <th><div class="es">Mascotas</div><div class="en">Pets</div></th>
+            <th style="width: 150px;"><spring:message code="table.name"/></th>
+            <th style="width: 200px;"><spring:message code="form.address"/></th>
+            <th><spring:message code="form.city"/></th>
+            <th style="width: 120px"><spring:message code="form.phone"/></th>
+            <th><spring:message code="head.pets"/></th>
+            <th></th>
         </tr>
         </thead>
         <tbody>
@@ -48,18 +48,7 @@
                 	<a href="/owners/${owner.id}/delete">
                 		<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
                 	</a>
-                </td>  
-                
-      
-<!--
-                <td> 
-                    <c:out value="${owner.user.username}"/> 
-                </td>
-                <td> 
-                   <c:out value="${owner.user.password}"/> 
-                </td> 
--->
-                
+                </td>          
             </tr>
         </c:forEach>
         </tbody>
