@@ -2,6 +2,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec"	uri="http://www.springframework.org/security/tags"%>
 <%@ taglib prefix="petclinic" tagdir="/WEB-INF/tags" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
@@ -29,9 +30,11 @@
                
                 </td>
                 <td class="text-left">
+                <sec:authorize access="hasAuthority('admin')">
                 	<a href="/vets/${vet.id}/delete">
                 		<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
                 	</a>
+                	</sec:authorize>
                 </td> 
             </tr>
         </c:forEach>
