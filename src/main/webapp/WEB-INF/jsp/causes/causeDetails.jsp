@@ -9,23 +9,23 @@
     <div>
         <table class="table table-bordered table-striped">
             <tr>
-                <th>Name</th>
+                <th><spring:message code="table.name"/></th>
                 <td><b><c:out value="${cause.name}"/></b></td>
             </tr>
             <tr>
-                <th>Description</th>
+                <th><spring:message code="table.info"/></th>
                 <td><b><c:out value="${cause.description}"/></b></td>
             </tr>
             <tr>
-                <th>Organization</th>
+                <th><spring:message code="table.org"/></th>
                 <td><b><c:out value="${cause.org}"/></b></td>
             </tr>
             <tr>
-                <th>Budget Target</th>
+                <th><spring:message code="table.obj_budg"/></th>
                 <td><b><c:out value="${cause.bTarget}"/></b></td>
             </tr>
             <tr>
-                <th>Current Budget</th>
+                <th><spring:message code="table.cur_budg"/></th>
                 <td><b><c:out value="${cause.currentB}"/></b></td>
             </tr>
             <tr>
@@ -35,14 +35,14 @@
         </table>
     </div>
 
-    <h3>Donations</h3>
+    <h3><spring:message code="head.donations"/></h3>
     <div class="table-title">
         <table id="donationsTable" class="table table-striped">
             <thead>
             <tr>
-                <th>Payer</th>
-                <th>Quantity</th>
-                <th>Date</th>
+                <th><spring:message code="head.patreon"/></th>
+                <th><spring:message code="head.quantity"/></th>
+                <th><spring:message code="head.date"/></th>
             </tr>
             </thead>
             <tbody>

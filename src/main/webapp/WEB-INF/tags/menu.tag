@@ -9,40 +9,33 @@
 	description="Name of the active menu: home, owners, vets or error"%>
 
 <style>
-.en {
-  display: none;
-}
+	nav div div ul a:hover {
+		background-color:#FF7770 !important;
+	}	
 </style>
 
-<script>
-function changeLanguageEsp() {
-  	var a= document.getElementsByClassName("es");
-  	for (var i = 0; i < a.length; i++) {
-   	   a.item(i).style.display = "block";
-   	}
-  	
-  	var b = document.getElementsByClassName("en");
-  	for (var i = 0; i < b.length; i++) {
-   	   b.item(i).style.display = "none";
-   	}
-}
-
-function changeLanguageEng() {
-  	var a= document.getElementsByClassName("es");
-  	for (var i = 0; i < a.length; i++) {
-   	   a.item(i).style.display = "none";
-   	}
-  	
-  	var b = document.getElementsByClassName("en");
-  	for (var i = 0; i < b.length; i++) {
-   	   b.item(i).style.display = "block";
-   	}
-	}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
+</script>
+<script type="text/javascript">
+$(document).ready(function() {
+    $("#locales").change(function () {
+        var selectedOption = $('#locales').val();
+        if (selectedOption != ''){
+            window.location.replace('?lang=' + selectedOption);
+			localStorage.setItem("lang", selectedOption);
+        }
+    });
+	if (localStorage.getItem("lang") != null)
+		document.getElementById('locales').value=localStorage.getItem("lang");
+});
 </script>
 
 <nav class="navbar navbar-default" role="navigation">
-<button onclick="changeLanguageEsp()">Español</button>
-<button onclick="changeLanguageEng()">English</button>
+<span><spring:message code="lang.change"/></span>:
+	<select id="locales">
+		<option value="en" selected><spring:message code="lang.en"/></option>
+		<option value="es"><spring:message code="lang.es"/></option>
+	</select>
 
 	<div class="container">
 		<div class="navbar-header">
@@ -61,22 +54,19 @@ function changeLanguageEng() {
 				<petclinic:menuItem active="${name eq 'home'}" url="/"
 					title="home page">
 					<span class="glyphicon glyphicon-home" aria-hidden="true"></span>
-					<div class="es"><span>Inicio</span></div>
-					<div class="en"><span>Home</span></div>
+					<spring:message code="menu.home"/>
 				</petclinic:menuItem>
 
 				<petclinic:menuItem active="${name eq 'owners'}" url="/owners/find"
 					title="find owners">
 					<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-					<div class="es"><span>Buscar Due�os</span></div>
-					<div class="en"><span>Find Owners</span></div>
+					<spring:message code="menu.owner"/>
 				</petclinic:menuItem>
 
 				<petclinic:menuItem active="${name eq 'vets'}" url="/vets"
 					title="veterinarians">
 					<span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
-					<div class="es"><span>Veterinarios</span></div>
-					<div class="en"><span>Vets</span></div>
+					<spring:message code="menu.vet"/>
 				</petclinic:menuItem>
 				
 
@@ -90,8 +80,7 @@ function changeLanguageEng() {
 				<petclinic:menuItem active="${name eq 'adoption'}" url="/adoption"
 					title="adoption">
 					<span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
-					<div class="es"><span>Adopciones</span></div>
-					<div class="en"><span>Adoptions</span></div>
+					<spring:message code="menu.adop"/>
 				</petclinic:menuItem>
 
                 <petclinic:menuItem active="${name eq 'causes'}" url="/causes"
@@ -99,13 +88,6 @@ function changeLanguageEng() {
                     <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
                     <span>Causes</span>
                 </petclinic:menuItem>
-
-				<petclinic:menuItem active="${name eq 'error'}" url="/oups"
-					title="trigger a RuntimeException to see how it is handled">
-					<span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span>
-					<span>Error</span>
-				</petclinic:menuItem>
-
 			</ul>
 
 
@@ -113,18 +95,12 @@ function changeLanguageEng() {
 
 			<ul class="nav navbar-nav navbar-right">
 				<sec:authorize access="!isAuthenticated()">
-					<div class="es">
-					<li><a href="<c:url value="/login" />">Acceso</a></li>
-					<li><a href="<c:url value="/users/new" />">Registro</a></li>
-					</div>
-					<div class="en">
-					<li><a href="<c:url value="/login" />">Login</a></li>
-					<li><a href="<c:url value="/users/new" />">Register</a></li>
-					</div>
+					<li><a href="<c:url value="/login" />"><spring:message code="menu.acces"/></a></li>
+					<li><a href="<c:url value="/users/new" />"><spring:message code="menu.regis"/></a></li>
 				</sec:authorize>
 				<sec:authorize access="isAuthenticated()">
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown"> <span class="glyphicon glyphicon-user"></span>�
+						data-toggle="dropdown"> <span class="glyphicon glyphicon-user"></span>
 							<strong><sec:authentication property="name" /></strong> <span
 							class="glyphicon glyphicon-chevron-down"></span>
 					</a>

@@ -14,18 +14,16 @@
         </script>
     </jsp:attribute>
     <jsp:body>
-        <div class="es"><h2><c:if test="${visit['new']}">Nueva </c:if>Visita</h2></div>
-        <div class="en"><h2><c:if test="${visit['new']}">New </c:if>Visit</h2></div>
+        <h2><c:if test="${visit['new']}"><spring:message code="text.new"/></c:if><spring:message code="text.visit"/></h2>
 
-        <div class="es"><b>Mascota</b></div>
-        <div class="en"><b>Pet</b></div>
+        <b><spring:message code="text.pet"/></b>
         <table class="table table-striped">
             <thead>
             <tr>
-                <th><div class="es">Nombre</div><div class="en">Name</div></th>
-                <th><div class="es">Fecha de Nacimiento</div><div class="en">Birth Address</div></th>
-                <th><div class="es">Tipo</div><div class="en">Type</div></th>
-                <th><div class="es">Dueño</div><div class="en">Owner</div></th>
+                <th><spring:message code="table.name"/></th>
+                <th><spring:message code="table.birth"/></th>
+                <th><spring:message code="table.type"/></th>
+                <th><spring:message code="text.owner"/></th>
             </tr>
             </thead>
             <tr>
@@ -38,32 +36,24 @@
 
         <form:form modelAttribute="visit" class="form-horizontal">
             <div class="form-group has-feedback">
-            	<div class="es">
-                <petclinic:inputField label="Fecha" name="date"/>
-                <petclinic:inputField label="Descripción" name="description"/>
-                </div>
-                <div class="en">
-                <petclinic:inputField label="Date" name="date"/>
-                <petclinic:inputField label="Description" name="description"/>
-                </div>
+                <petclinic:inputField translate="yes" label="head.date" name="date"/>
+                <petclinic:inputField translate="yes" label="table.info" name="description"/>
             </div>
 
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
                     <input type="hidden" name="petId" value="${visit.pet.id}"/>
-                    <div class="es"><button class="btn btn-default" type="submit">Añadir Visita</button></div>
-                    <div class="en"><button class="btn btn-default" type="submit">Add Visit</button></div>
+                    <button class="btn btn-default" type="submit"><spring:message code="button.add"/></button>
                 </div>
             </div>
         </form:form>
 
         <br/>
-        <div class="es"><b>Visitas Previas</b></div>
-        <div class="en"><b>Previous Visits</b></div>
+        <b><spring:message code="text.visits"/></b>
         <table class="table table-striped">
             <tr>
-                <th><div class="es">Fecha</div><div class="en">Date</div></th>
-                <th><div class="es">Descripción</div><div class="en">Description</div></th>
+                <th><spring:message code="head.date"/></th>
+                <th><spring:message code="table.info"/></th>
             </tr>
             <c:forEach var="visit" items="${visit.pet.visits}">
                 <c:if test="${!visit['new']}">

@@ -6,14 +6,13 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <petclinic:layout pageName="vets">
-    <div class="es"><h2>Veterinarios</h2></div>
-    <div class="en"><h2>Vets</h2></div>
+    <h2><spring:message code="menu.vet"/></h2>
 
     <table id="vetsTable" class="table table-striped">
         <thead>
         <tr>
-            <th><div class="es">Nombre</div><div class="en">Name</div></th>
-            <th><div class="es">Especialidad</div><div class="en">Specialty</div></th>
+            <th><spring:message code="table.name"/></th>
+            <th><spring:message code="text.spec"/></th>
         </tr>
         </thead>
         <tbody>
