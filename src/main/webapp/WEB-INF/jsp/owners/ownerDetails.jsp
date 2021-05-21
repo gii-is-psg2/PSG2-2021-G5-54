@@ -116,9 +116,11 @@
                         
                             
                             <td class="text-left">
+                            <sec:authorize access="hasAuthority('admin')">
                 				<a href="/owners/${owner.id}/pets/${pet.id}/delete">
                 					<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
                 				</a>
+                			</sec:authorize>
                 			</td>  
                         </tr>
                     </table>
