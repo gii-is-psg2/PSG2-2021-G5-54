@@ -8,7 +8,8 @@
 
 
 <petclinic:layout pageName="causes">
-
+ 
+ 
     <h2>Causes</h2>
     <div class="table-title">
         <table id="causesTable" class="table table-striped">
