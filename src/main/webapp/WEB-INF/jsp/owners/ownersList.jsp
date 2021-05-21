@@ -11,6 +11,7 @@
 <petclinic:layout pageName="owners">
     <h2><spring:message code="menu.owner"/></h2>
 
+
     <table id="ownersTable" class="table table-striped">
         <thead>
         <tr>
