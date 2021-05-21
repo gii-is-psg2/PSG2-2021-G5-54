@@ -9,6 +9,8 @@
 <petclinic:layout pageName="owners">
     <h2><spring:message code="text.new"/><spring:message code="menu.owner"/></h2>
     
+    
+    
     <form:form modelAttribute="owner" class="form-horizontal" id="add-owner-form">
         <div class="form-group has-feedback">
             <petclinic:inputField translate="yes" label="form.firstname" name="firstName"/>
