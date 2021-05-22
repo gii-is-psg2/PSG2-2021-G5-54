@@ -12,7 +12,7 @@
     <h2><spring:message code="menu.owner"/></h2>
 
 
-    <table id="ownersTable" class="table table-striped">
+    <table id="ownersTable" class="table">
         <thead>
         <tr>
             <th style="width: 150px;"><spring:message code="table.name"/></th>
@@ -25,7 +25,7 @@
         </thead>
         <tbody>
         <c:forEach items="${selections}" var="owner">
-            <tr>
+            <tr class="active">
                 <td>
                 
                     <spring:url value="/owners/{ownerId}" var="ownerUrl">

@@ -9,7 +9,7 @@
 
 <petclinic:layout pageName="reservas">
     <h2><spring:message code="head.books"/></h2>
-        <table id="reservasTable" class="table table-striped">
+        <table id="reservasTable" class="table">
         <thead>
         <tr>
             <th><spring:message code="table.date_in"/></th>
@@ -19,7 +19,7 @@
         </thead>
         <tbody>
         <c:forEach items="${reserva}" var="reserva">
-            <tr>     
+            <tr class="active">     
                 <td>                    
                     <c:out value="${reserva.fechaInicio}"/>
                 </td>

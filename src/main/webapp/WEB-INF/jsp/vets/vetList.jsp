@@ -9,16 +9,17 @@
 <petclinic:layout pageName="vets">
     <h2><spring:message code="menu.vet"/></h2>
 
-    <table id="vetsTable" class="table table-striped">
+    <table id="vetsTable" class="table">
         <thead>
         <tr>
             <th><spring:message code="table.name"/></th>
             <th><spring:message code="text.spec"/></th>
+            <th></th>
         </tr>
         </thead>
         <tbody>
         <c:forEach items="${vets.vetList}" var="vet">
-            <tr>
+            <tr class="active">
                 <td>
                     <spring:url value="/vets/{vetId}/edit" var="vetUrl">
                         <spring:param name="vetId" value="${vet.id}"/>

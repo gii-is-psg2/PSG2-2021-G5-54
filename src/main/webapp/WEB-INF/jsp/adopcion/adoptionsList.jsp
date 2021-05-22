@@ -8,7 +8,7 @@
 <petclinic:layout pageName="adoptions">
     <h2><spring:message code="head.adoption"/></h2>
 
-    <table id="adoptionsTable" class="table table-striped table-header">
+    <table id="adoptionsTable" class="table table-header">
         <thead>
         <tr>
             <th style="width: 150px;"><spring:message code="table.name"/></th>
@@ -20,7 +20,7 @@
         </thead>
         <tbody>
         <c:forEach items="${adoptions}" var="adopcion">
-            <tr>
+            <tr class="active">
                 <td>
                     <c:out value="${adopcion.pet.name}"/>
                 </td>
