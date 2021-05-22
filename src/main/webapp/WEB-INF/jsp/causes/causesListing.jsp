@@ -12,7 +12,7 @@
  
     <h2>Causes</h2>
     <div class="table-title">
-        <table id="causesTable" class="table table-striped">
+        <table id="causesTable" class="table">
             <thead>
             <tr>
                 <th><spring:message code="table.name"/></th>
@@ -25,7 +25,7 @@
             </thead>
             <tbody>
             <c:forEach items="${causes}" var="cause">
-                <tr>
+                <tr class="active">
                     <td>
                         <spring:url value="/causes/{causeID}" var="causeURL">
                             <spring:param name="causeID" value="${cause.id}"/>

@@ -8,7 +8,7 @@
 <petclinic:layout pageName="requests">
     <h2><spring:message code="button.request"/></h2>
 
-    <table id="requestsTable" class="table table-striped table-header">
+    <table id="requestsTable" class="table table-header">
         <thead>
         <tr>
              <th style="width: 150px;"><spring:message code="table.name"/></th>
@@ -22,7 +22,7 @@
         </thead>
         <tbody>
         <c:forEach items="${requests}" var="request">
-            <tr>
+            <tr class="active">
                 <td>
                     <c:out value="${request.newOwner.firstName} "/><c:out value="${request.newOwner.lastName}"/>
                 </td>
