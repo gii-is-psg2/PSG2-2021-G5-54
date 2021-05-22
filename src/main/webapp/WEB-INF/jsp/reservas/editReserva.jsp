@@ -23,6 +23,16 @@
 		    </script>
 
 <petclinic:layout pageName="reservas">
+
+	<jsp:attribute name="customScript">
+  		  <script>
+            $(function() {
+                $("#fechaInicio").datepicker({dateFormat: 'yy-mm-dd'});
+                $("#fechaFin").datepicker({dateFormat: 'yy-mm-dd'});
+            });
+  		</script>
+  	</jsp:attribute>
+
 <jsp:body>
     <h2><spring:message code="head.books"/></h2>
     <form:form name="reservarForm" modelAttribute="reserva" class="form-horizontal" id="add-reserva-form" action="/reservas/save" onsubmit="return validateForm();">
