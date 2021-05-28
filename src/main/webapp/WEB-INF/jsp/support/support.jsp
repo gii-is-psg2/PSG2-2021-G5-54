@@ -28,14 +28,14 @@ var contactsBody;
 var oJSON = {
     "operation": "core/get",
     "class": "Contact",
-    "key": "SELECT Person WHERE email LIKE '%.com'"
+    "key": "SELECT Person WHERE email LIKE '%.es'"
     "output_fields": "friendlyname, email"
 };
 function setup() {
     contactsBody = $("#contactsBody");
     $.ajax({
         type: "POST",
-        url: "https://localhost/itop/webservices/rest.php?version=1.3",
+        url: "http://localhost/itop/webservices/rest.php?version=1.3",
         dataType: "json",
         data: {
             auth_user: "apirest",

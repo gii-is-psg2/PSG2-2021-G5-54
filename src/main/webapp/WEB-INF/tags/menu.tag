@@ -88,6 +88,18 @@ $(document).ready(function() {
                     <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
                     <span>Causes</span>
                 </petclinic:menuItem>
+                
+                <petclinic:menuItem active="${name eq 'causes'}" url="/manage/health"
+                                    title="causes">
+                    <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+                    <span>Health</span>
+                </petclinic:menuItem>
+                                
+                <petclinic:menuItem active="${name eq 'causes'}" url="/support"
+                                    title="causes">
+                    <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+                    <span>Support</span>
+                </petclinic:menuItem>                
 			</ul>
 
 
