@@ -2,23 +2,24 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec"	uri="http://www.springframework.org/security/tags"%>
 <%@ taglib prefix="petclinic" tagdir="/WEB-INF/tags" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <petclinic:layout pageName="vets">
-    <div class="es"><h2>Veterinarios</h2></div>
-    <div class="en"><h2>Vets</h2></div>
+    <h2><spring:message code="menu.vet"/></h2>
 
-    <table id="vetsTable" class="table table-striped">
+    <table id="vetsTable" class="table">
         <thead>
         <tr>
-            <th><div class="es">Nombre</div><div class="en">Name</div></th>
-            <th><div class="es">Especialidad</div><div class="en">Specialty</div></th>
+            <th><spring:message code="table.name"/></th>
+            <th><spring:message code="text.spec"/></th>
+            <th></th>
         </tr>
         </thead>
         <tbody>
         <c:forEach items="${vets.vetList}" var="vet">
-            <tr>
+            <tr class="active">
                 <td>
                     <spring:url value="/vets/{vetId}/edit" var="vetUrl">
                         <spring:param name="vetId" value="${vet.id}"/>
@@ -30,9 +31,11 @@
                
                 </td>
                 <td class="text-left">
+                <sec:authorize access="hasAuthority('admin')">
                 	<a href="/vets/${vet.id}/delete">
                 		<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
                 	</a>
+                	</sec:authorize>
                 </td> 
             </tr>
         </c:forEach>

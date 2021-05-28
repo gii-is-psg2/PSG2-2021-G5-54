@@ -6,24 +6,21 @@
 <%@ taglib prefix="petclinic" tagdir="/WEB-INF/tags" %>
 
 <petclinic:layout pageName="adoptions">
-    <h2>
-    <div class="es">Adopciones</div>
-    <div class="en">Adoptions</div>
-    </h2>
+    <h2><spring:message code="head.adoption"/></h2>
 
-    <table id="adoptionsTable" class="table table-striped table-header">
+    <table id="adoptionsTable" class="table table-header">
         <thead>
         <tr>
-            <th style="width: 150px;"><div class="es">Nombre</div><div class="en">Name</div></th>
-            <th style="width: 150px;"><div class="es">Fecha de Nacimiento</div><div class="en">Birth Date</div></th>
-            <th style="width: 150px;"><div class="es">Tipo</div><div class="en">Type</div></th>
-			<th style="width: 150px;"><div class="es">Info</div><div class="en">Info</div></th>
-            <th style="width: 150px;"><div class="es">Opciones</div><div class="en">Options</div></th>
+            <th style="width: 150px;"><spring:message code="table.name"/></th>
+            <th style="width: 150px;"><spring:message code="table.birth"/></th>
+            <th style="width: 150px;"><spring:message code="table.type"/></th>
+			<th style="width: 150px;"><spring:message code="table.info"/></th>
+            <th style="width: 150px;"><spring:message code="table.options"/></th>
         </tr>
         </thead>
         <tbody>
         <c:forEach items="${adoptions}" var="adopcion">
-            <tr>
+            <tr class="active">
                 <td>
                     <c:out value="${adopcion.pet.name}"/>
                 </td>
@@ -45,13 +42,13 @@
                 				</c:if>
                 			</c:forEach>
                 			<c:if test="${aux!=1}">
-                			<a href='<spring:url value="/adoption/${adopcion.id}/requests/new" htmlEscape="true"/>'><div class="es">Solicitar</div><div class="en">Request</div></a>
+                			<a href='<spring:url value="/adoption/${adopcion.id}/requests/new" htmlEscape="true"/>'><spring:message code="button.request"/></a>
                 			</c:if>
                 		
                 		</c:if>
  
                     <c:if test="${adopcion.pet.owner.user.username == username}">
-                    <a href='<spring:url value="/adoption/${adopcion.id}/requests" htmlEscape="true"/>'><div class="es">Solicitudes</div><div class="en">Requests</div></a>
+                    <a href='<spring:url value="/adoption/${adopcion.id}/requests" htmlEscape="true"/>'><spring:message code="button.requests"/></a>
                     </c:if>
                     
                 </td>

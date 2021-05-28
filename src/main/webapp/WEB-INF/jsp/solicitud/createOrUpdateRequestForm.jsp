@@ -7,9 +7,7 @@
 <%@ taglib prefix="petclinic" tagdir="/WEB-INF/tags" %>
 
 <petclinic:layout pageName="newAdoptionRequest">
-        <h2>
-            <div class="es">Nueva Solicitud</div><div class="en">Nueva Request</div>
-        </h2>
+        <h2><spring:message code="text.new"/><spring:message code="button.request"/></h2>
      
         <form:form modelAttribute="solicitud" class="form-horizontal" id="add-adoption-form">
             <div class="form-group has-feedback">
@@ -18,7 +16,7 @@
             </div>
              <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
-                    <button class="btn btn-default" type="submit"><div class="es">Añadir</div><div class="en">Add</div></button>
+                    <button class="btn btn-default" type="submit"><spring:message code="button.add"/></button>
                 </div>
             </div>
         </form:form>

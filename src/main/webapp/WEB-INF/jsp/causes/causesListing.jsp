@@ -8,23 +8,24 @@
 
 
 <petclinic:layout pageName="causes">
-
+ 
+ 
     <h2>Causes</h2>
     <div class="table-title">
-        <table id="causesTable" class="table table-striped">
+        <table id="causesTable" class="table">
             <thead>
             <tr>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Organization</th>
-                <th>Budget Target</th>
-                <th>Current budget</th>
+                <th><spring:message code="table.name"/></th>
+                <th><spring:message code="table.info"/></th>
+                <th><spring:message code="table.org"/></th>
+                <th><spring:message code="table.obj_budg"/></th>
+                <th><spring:message code="table.cur_budg"/></th>
                 <th>Status</th>
             </tr>
             </thead>
             <tbody>
             <c:forEach items="${causes}" var="cause">
-                <tr>
+                <tr class="active">
                     <td>
                         <spring:url value="/causes/{causeID}" var="causeURL">
                             <spring:param name="causeID" value="${cause.id}"/>
@@ -58,7 +59,7 @@
                                     <spring:url value="causes/{causeId}/donate" var="donateURL">
                                         <spring:param name="causeId" value="${cause.id}"/>
                                     </spring:url>
-                                    <a href="${fn:escapeXml(donateURL)}" class="btn btn-default">Donate</a>
+                                    <a href="${fn:escapeXml(donateURL)}" class="btn btn-default"><spring:message code="button.donate"/></a>
                                 </td>
                             </c:otherwise>
                         </c:choose>
@@ -69,7 +70,7 @@
         </table>
     </div>
     <sec:authorize access="hasAuthority('owner')">
-        <button class="btn btn-default" onclick="window.location.href = '/causes/new'">New Cause</button>
+        <button class="btn btn-default" onclick="window.location.href = '/causes/new'"><spring:message code="button.n_cause"/></button>
     </sec:authorize>
 
 </petclinic:layout>

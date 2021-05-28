@@ -6,23 +6,23 @@
 <%@ taglib prefix="petclinic" tagdir="/WEB-INF/tags" %>
 
 <petclinic:layout pageName="requests">
-    <h2><div class="es">Solicitudes</div><div class="en">Requests</div></h2>
+    <h2><spring:message code="button.request"/></h2>
 
-    <table id="requestsTable" class="table table-striped table-header">
+    <table id="requestsTable" class="table table-header">
         <thead>
         <tr>
-             <th style="width: 150px;"><div class="es">Nombre</div><div class="en">Name</div></th>
-             <th style="width: 150px;"><div class="es">Dirección</div><div class="en">Address</div></th>
-             <th style="width: 150px;"><div class="es">Teléfono</div><div class="en">Phone</div></th>
-             <th style="width: 150px;"><div class="es">Fecha</div><div class="en">Date</div></th>
+             <th style="width: 150px;"><spring:message code="table.name"/></th>
+             <th style="width: 150px;"><spring:message code="form.address"/></th>
+             <th style="width: 150px;"><spring:message code="form.city"/></th>
+             <th style="width: 150px;"><spring:message code="head.date"/></th>
              <th style="width: 150px;">Info</th>
-			<th style="width: 150px;"><div class="es">Opciones</div><div class="en">Options</div></th>
+			<th style="width: 150px;"><spring:message code="text.opt"/></th>
             
         </tr>
         </thead>
         <tbody>
         <c:forEach items="${requests}" var="request">
-            <tr>
+            <tr class="active">
                 <td>
                     <c:out value="${request.newOwner.firstName} "/><c:out value="${request.newOwner.lastName}"/>
                 </td>
@@ -42,7 +42,7 @@
                 	<c:when test="${username == request.adoption.pet.owner.user.username}">
                     	<td>
                     		<a href='<spring:url value="/adoption/${request.adoption.id}/requests/${request.id}/accept" htmlEscape="true"/>'>
-                    		<div class="es">Aceptar</div><div class="en">Accept</div>
+                    		<spring:message code="text.accept"/>
                     		</a>
                 		</td>
                     </c:when>

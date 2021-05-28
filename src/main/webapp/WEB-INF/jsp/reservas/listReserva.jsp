@@ -8,18 +8,18 @@
 
 
 <petclinic:layout pageName="reservas">
-    <h2>Reservas</h2>
-        <table id="reservasTable" class="table table-striped">
+    <h2><spring:message code="head.books"/></h2>
+        <table id="reservasTable" class="table">
         <thead>
         <tr>
-            <th>Fecha inicio</th>
-            <th>Fecha fin</th>
-            <th>Mascota</th>             
+            <th><spring:message code="table.date_in"/></th>
+            <th><spring:message code="table.date_end"/></th>
+            <th><spring:message code="text.pet"/></th>             
         </tr>
         </thead>
         <tbody>
         <c:forEach items="${reserva}" var="reserva">
-            <tr>     
+            <tr class="active">     
                 <td>                    
                     <c:out value="${reserva.fechaInicio}"/>
                 </td>
@@ -34,6 +34,6 @@
         </tbody>
     </table>
     <sec:authorize access="hasAuthority('owner')">
-    	<a class="btn btn-default" href='<spring:url value="/reservas/new" htmlEscape="true"/>'>Añadir reserva</a>
+    	<a class="btn btn-default" href='<spring:url value="/reservas/new" htmlEscape="true"/>'><spring:message code="button.add"/></a>
 	</sec:authorize>
 </petclinic:layout>
